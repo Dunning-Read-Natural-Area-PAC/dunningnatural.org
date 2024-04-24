@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="max-w-screen-lg text-center text-base space-y-10 m-auto text-center mb-5 px-4">
+    {{ .Content }}
+</section>
+
+<section class="flex overflow-x-auto mx-3 md:mx-6 h-44 md:h-56">
+    <div id="ig-feed" class="flex flex-nowrap min-h-32 items-center"></div>
+</section>
+
+<section class="footer-image">
+    <div class="relative w-full mx-auto text-white" style="text-shadow: rgb(0, 0, 0) 0px 0px 21px;">
+        {{ $image := .Resources.Get "footer.jpg" }}
+        <img alt="" class="w-full min-h-[400px] max-h-[400px] object-cover" src="{{ $image.RelPermalink }}">
+
+        <div class="absolute inset-0 flex flex-col items-center justify-center justify-between h-3/4 m-auto">
+            <h1 class="text-2xl sm:text-4xl lg:text-6xl uppercase">Questions?</h1>
+            <p class="text-center max-w-screen-lg px-4">Are you interested in getting involved or being added to our email list? Want to share your thoughts
+                and ideas or ask questions? Please contact us. We look forward to hearing from you!</p>
+
+            <div class="flex space-x-4 text-sm font-medium">
+                <div class="h-10 flex-auto flex items-center space-x-4">
+                    <a  class="px-6 py-3 rounded-md bg-dark-green text-white no-underline"
+                        href="{{ "contact" | absURL }}" class="button">Contact Us</a>
+                </div>
+            </div>
+
+            <div>
+                <a class="mr-4" href="https://www.facebook.com/dunningreadnaturalarea" target="_blank">
+                    <i style="color: white" class="fa-brands fa-facebook fa-2xl" aria-hidden="true"></i>
+                    <span class="fa-sr-only">Dunning Reaad Natural Area on Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/dunning_read_natural_area_pac/" target="_blank">
+                    <i style="color: white;" class="fa-brands fa-instagram fa-2xl" aria-hidden="true"></i>
+                    <span class="fa-sr-only">Dunning Reaad Natural Area on Instagram</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+{{ end }}
+
+{{ define "postbody" }}
+{{ partial "head/js.html" (dict "page" . "jsPath" "js/ig.js") }}
+{{ end }}

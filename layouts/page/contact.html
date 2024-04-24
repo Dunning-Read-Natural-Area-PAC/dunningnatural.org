@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class=" w-full max-w-screen-lg mx-auto px-4">
+    <div class="flex flex-row flex-wrap">
+        <section class="grow shrink basis-1 min-w-96 px-3 order-2">
+            <div class="w-full">
+                <div class="p-3">
+                    <h3>Location:</h3>
+                    <p>4050 North Oak Park Avenue, Chicago, IL 60634</p>
+                </div>
+
+                <div class="p-3 responsive-iframe-container">
+                    <iframe loading="lazy"
+                        src="https://maps.google.com/maps?q=4050%20North%20Oak%20Park%20Avenue%2C%20Chicago%2C%20IL%2060634&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near"
+                        title="4050 North Oak Park Avenue, Chicago, IL 60634"
+                        aria-label="4050 North Oak Park Avenue, Chicago, IL 60634"></iframe>
+                </div>
+            </div>
+        </section>
+        <section class="grow shrink basis-1 min-w-96 px-3 order-1">
+            <div class="w-full">
+                <div class="p-3">
+                    <h3>Contact form:</h3>
+                    <p><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdifLaet7N8rVJyUUynD-tQtxm666f6ORmalJnGE1pYxiR81w/viewform?usp=sf_link">Contact DRNA PAC</a></p>
+                </div>
+                <div class="p-3">
+                    <h3>Email:</h3>
+                    <p><a href="https://mailhide.io/e/j5l2mphS" onclick="popup=window.open('https://mailhide.io/e/j5l2mphS','mailhidepopup','width=580,height=635'); return false;">d......@gmail.com</a> (click to reveal)</p>
+                </div>
+                <div class="p-3">
+                    <h3>Facebook:</h3>
+                    <p><a href="https://www.facebook.com/dunningreadnaturalarea">Dunning Read Natural Area</a></p>
+                </div>
+                <div class="p-3">
+                    <h3>Instagram:</h3>
+                    <p><a href="https://www.instagram.com/dunning_read_natural_area_pac">@dunning_read_natural_area_pac</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{{ end }}

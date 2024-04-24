@@ -1,0 +1,26 @@
+{{- $page := .page }}
+
+<nav class="absolute top-0 right-0 uppercase list-none p-3 w-full flex justify-end">
+  <div class="hidden md:block">
+    <ul class="list-none text-white">
+      {{- range site.Menus.main }}
+        <li class="inline p-3">
+          <a class="text-inherit no-underline" href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+      {{- end }}
+
+    </ul>
+  </div>
+
+  <div class="flex flex-col items-end w-full md:hidden">
+    <input type="checkbox" id="menu" class="hidden peer">
+    <label for="menu" class="block md:hidden"><i class="fa-solid fa-bars fa-lg"></i></label>
+      <ul class="list-none hidden peer-checked:block md:hidden bg-white text-dark-green w-full max-w-52 flex space-y-1 rounded" style="text-shadow: none;">
+      {{- range site.Menus.main }}
+        <li class="w-full">
+          <a class="text-inherit block text-center py-1" href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+      {{- end }}
+    </ul>
+  </div>
+</nav>

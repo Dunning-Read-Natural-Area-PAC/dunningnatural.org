@@ -1,0 +1,6 @@
+public/
+.hugo_build.lock
+node_modules/
+assets/css/tailwind.css
+resources/
+deployment/.terraform/

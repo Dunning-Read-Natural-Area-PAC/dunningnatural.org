@@ -1,0 +1,87 @@
+<style>
+    .gallery-image-wrapper {
+        border-radius: 50%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gallery-image {
+        padding: 0;
+        display: block;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="flex flex-row flex-wrap text-center gap-y-5 justify-center">
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Brian Stevens.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Brian Stevens" />
+        </div>
+        <figcaption>Brian Stevens - President</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Erika Street Hopman.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Erika Street Hopman" />
+        </div>
+        <figcaption>Erika Street Hopman - Vice President</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Mary Joyce Cahill.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Mary Joyce Cahill" />
+        </div>
+        <figcaption>Mary Joyce Cahill — Secretary</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Jasmine Harb.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Jasmine Harb" />
+        </div>
+        <figcaption>Jasmine Harb - Treasurer</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Jeff Daube.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Jeff Daube" />
+        </div>
+        <figcaption>Jeff Daube — Site Steward</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Ed Bannon.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Ed Bannon" />
+        </div>
+        <figcaption>Ed Bannon</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Kathleen McCarthy.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Kathleen McCarthy" />
+        </div>
+        <figcaption>Kathleen McCarthy</figcaption>
+    </figure>
+
+    <figure class="flex-none basis-52">
+        {{ $image := .Page.Resources.Get "images/2024-board/Zack Rasmussen.jpeg" }}
+        {{ $image := $image.Resize "150x150" }}
+        <div class="gallery-image-wrapper">
+            <img class="gallery-image mx-auto" loading="lazy" src="{{ $image.RelPermalink }}" alt="Portrait of Zack Rasmussen" />
+        </div>
+        <figcaption>Zack Rasmussen</figcaption>
+    </figure>
+</div>

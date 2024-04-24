@@ -1,0 +1,9 @@
+# Environment: {{ hugo.Environment }}
+{{- if eq hugo.Environment "production" }}
+User-agent: *
+{{ range .Pages }}Allow: {{ .RelPermalink }}
+{{ end }}
+{{- else }}
+User-agent: *
+Disallow: /
+{{- end }}

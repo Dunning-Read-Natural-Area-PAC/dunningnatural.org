@@ -1,0 +1,35 @@
+baseURL = 'https://dunningnatural.org/'
+languageCode = 'en-us'
+title = 'Dunning Read Natural Area'
+disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'About the site'
+pageRef = '/history'
+weight = 20
+
+[[menus.main]]
+name = 'Who we are'
+pageRef = '/about'
+weight = 30
+
+[[menus.main]]
+name = 'Events'
+pageRef = '/calendar'
+weight = 40
+
+[[menus.main]]
+name = 'Contact us'
+pageRef = '/contact'
+weight = 50
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
