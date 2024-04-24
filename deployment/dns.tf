@@ -7,24 +7,6 @@ resource "cloudflare_zone" "dunningnatural_zone" {
   zone       = "dunningnatural.org"
 }
 
-resource "cloudflare_record" "dunningnatural_A" {
-  name            = "dunningnatural.org"
-  proxied         = true
-  ttl             = 1
-  type            = "A"
-  value           = "35.206.107.101"
-  zone_id         = cloudflare_zone.dunningnatural_zone.id
-}
-
-resource "cloudflare_record" "wwwdunningnatural_A" {
-  name            = "www"
-  proxied         = true
-  ttl             = 1
-  type            = "A"
-  value           = "35.206.107.101"
-  zone_id         = cloudflare_zone.dunningnatural_zone.id
-}
-
 resource "cloudflare_record" "dunningnatural__dmarc" {
   name            = "_dmarc"
   proxied         = false
