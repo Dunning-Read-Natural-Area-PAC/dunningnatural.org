@@ -35,8 +35,13 @@ This requires that you've been added to the GCP project `dunningnatural-3e6e829d
 cd deployment/
 
 gcloud auth --project=dunningnatural-3e6e829d application-default login
+
 terraform init
 
-export CLOUDFLARE_API_TOKEN=$(gcloud --project=dunningnatural-3e6e829d secrets versions access current --secret=cloudflare_api_token)
+export CLOUDFLARE_API_TOKEN=$(gcloud \
+    --project=dunningnatural-3e6e829d \
+    secrets versions access current \
+    --secret=cloudflare_api_token)
+
 terraform plan
 ```
