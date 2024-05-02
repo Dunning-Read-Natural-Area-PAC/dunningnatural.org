@@ -3,6 +3,7 @@
 ## Additional documentation
 
 - [Why a static site?](./docs/Why%20a%20static%20site.md)
+- [Contributing](./CONTRIBUTING.md)
 
 ## Local development
 
