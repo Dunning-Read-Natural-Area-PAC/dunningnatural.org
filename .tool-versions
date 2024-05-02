@@ -1,7 +1,6 @@
 # managed by asdf
-nodejs 21.7.3
-hugo 0.118.2
-gcloud 474.0.0
-
 # TODO - this fails on CloudFlare
+# nodejs 21.7.3
+# hugo 0.118.2
+# gcloud 474.0.0
 # terraform 1.8.2
