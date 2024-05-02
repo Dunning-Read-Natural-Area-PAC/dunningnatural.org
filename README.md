@@ -9,7 +9,7 @@
 
 ### Prerequisites
 
-Install the tools listed in `./tool-versions`. If you're using `asdf`, run `asdf install` in this directory.
+Install the tools listed in [`./.tool-versions`](./.tool-versions). If you're using `asdf`, run `asdf install` in this directory.
 
 The below assume you're using a Unix shell. If you're using Windows, consider using [WSL](https://learn.microsoft.com/en-us/windows/wsl/).
 
