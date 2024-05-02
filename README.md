@@ -1,4 +1,4 @@
-# Static site generator for dunningnatural.org
+# Static site generator for https://dunningnatural.org
 
 ## Additional documentation
 
