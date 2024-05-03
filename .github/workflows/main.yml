@@ -14,6 +14,11 @@ jobs:
       - name: Install asdf & tools
         uses: asdf-vm/actions/install@v3
       - name: npm install
-        run: npm install
+        run: npm clean-install
       - name: run build
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: site
+          path: ./public
