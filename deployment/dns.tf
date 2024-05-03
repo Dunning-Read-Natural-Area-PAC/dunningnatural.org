@@ -8,19 +8,19 @@ resource "cloudflare_zone" "dunningnatural_zone" {
 }
 
 resource "cloudflare_record" "dunningnatural__dmarc" {
-  name            = "_dmarc"
-  proxied         = false
-  ttl             = 1
-  type            = "TXT"
-  value           = "v=DMARC1; p=none;"
-  zone_id         = cloudflare_zone.dunningnatural_zone.id
+  name    = "_dmarc"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "v=DMARC1; p=none;"
+  zone_id = cloudflare_zone.dunningnatural_zone.id
 }
 
 resource "cloudflare_record" "dunningnatural_TXT" {
-  name            = "dunningnatural.org"
-  proxied         = false
-  ttl             = 1
-  type            = "TXT"
-  value           = "v=spf1 -all"
-  zone_id         = cloudflare_zone.dunningnatural_zone.id
+  name    = "dunningnatural.org"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "v=spf1 -all"
+  zone_id = cloudflare_zone.dunningnatural_zone.id
 }

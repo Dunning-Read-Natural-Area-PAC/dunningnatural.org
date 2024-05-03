@@ -4,9 +4,9 @@ resource "cloudflare_pages_project" "dunningnatural" {
   name              = "dunningnatural"
   production_branch = "main"
   build_config {
-    build_caching       = false
-    build_command       = "npm run build"
-    destination_dir     = "public"
+    build_caching   = false
+    build_command   = "npm run build"
+    destination_dir = "public"
   }
   deployment_configs {
     preview {
