@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:  
+
+jobs:
+  build:
+    name: build static site
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Setup ASDF
+        run: |
+          apt install curl git
+          git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
