@@ -9,6 +9,7 @@ jobs:
     name: build static site
     runs-on: ubuntu-22.04
     steps:
-      - name: Setup ASDF
-        run: |
-          git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+      - name: Install asdf & tools
+        uses: asdf-vm/actions/install@v3
+      - name: run build
+        run: npm run build
