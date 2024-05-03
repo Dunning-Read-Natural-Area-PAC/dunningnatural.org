@@ -39,12 +39,16 @@ jobs:
           workload_identity_provider: 'projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
       - name: Install asdf & tools
         uses: asdf-vm/actions/install@v3
-      - name: Set up CloudFlare secret
+      - id: set-cf-secret
+        name: Set CloudFlare secret
         run: |
-          ./scripts/fetch_secrets.sh
+          CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
+          echo "::add-mask::$CLOUDFLARE_API_TOKEN"
+          echo "cloudflare-api-token=${CLOUDFLARE_API_TOKEN}" >> "$GITHUB_OUTPUT"
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
+          apiToken: ${{ steps.set-cf-secret.outputs.cloudflare-api-token }}
           accountId: "441225c17ffd0facfc5a66f2ee0f45ac"
           projectName: "dunningnatural"
           directory: public

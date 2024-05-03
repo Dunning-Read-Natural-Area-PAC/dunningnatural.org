@@ -41,3 +41,10 @@ resource "google_iam_workload_identity_pool_provider" "github_actions_provider" 
     issuer_uri        = "https://token.actions.githubusercontent.com"
   }
 }
+
+resource "google_secret_manager_secret_iam_member" "member" {
+  project = google_secret_manager_secret.cloudflare_api_token.project
+  secret_id = google_secret_manager_secret.cloudflare_api_token.secret_id
+  role = "roles/secretmanager.secretAccessor"
+  member = "principalSet://iam.googleapis.com/projects/7571523860/locations/global/workloadIdentityPools/github-actions/attribute.repository_id/788183416"
+}

@@ -31,7 +31,7 @@ resource "cloudflare_pages_project" "dunningnatural" {
       preview_branch_includes       = ["*"]
       preview_deployment_setting    = "all"
       production_branch             = "main"
-      production_deployment_enabled = true
+      production_deployment_enabled = false
       repo_name                     = "dunningnatural.org"
     }
   }
