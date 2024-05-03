@@ -10,6 +10,4 @@ CLOUDFLARE_API_TOKEN=$(gcloud \
     secrets versions access current \
     --secret=cloudflare_api_token)
 
-CLOUDFLARE_API_TOKEN=foo
-
 echo $CLOUDFLARE_API_TOKEN
