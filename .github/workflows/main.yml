@@ -25,6 +25,9 @@ jobs:
   deploy:
     name: Deploy to CloudFlare pages
     runs-on: ubuntu-22.04
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - name: Authenticate to GCP
         uses: 'google-github-actions/auth@v2'
