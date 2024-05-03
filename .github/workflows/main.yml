@@ -29,13 +29,13 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - name: Authenticate to GCP
         uses: 'google-github-actions/auth@v2'
         with:
           project_id: 'dunningnatural-3e6e829d'
           workload_identity_provider: 'projects/dunningnatural-3e6e829d/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - name: Install asdf & tools
         uses: asdf-vm/actions/install@v3
       - name: Use gcloud CLI
