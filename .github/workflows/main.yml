@@ -34,5 +34,5 @@ jobs:
         with:
           apiToken: ${{ steps.set-cf-secret.outputs.cloudflare-api-token }}
           accountId: "441225c17ffd0facfc5a66f2ee0f45ac"
-          projectName: "dunningnatural"
+          projectName: "dunningnatural-pages"
           directory: public
