@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: build static site
+    name: Build static site
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository code
@@ -15,10 +15,26 @@ jobs:
         uses: asdf-vm/actions/install@v3
       - name: npm install
         run: npm clean-install
-      - name: run build
+      - name: Build static site
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: site
           path: ./public
+  deploy:
+    name: Deploy to CloudFlare pages
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Authenticate to GCP
+        uses: 'google-github-actions/auth@v2'
+        with:
+          project_id: 'dunningnatural-3e6e829d'
+          workload_identity_provider: 'projects/dunningnatural-3e6e829d/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install asdf & tools
+        uses: asdf-vm/actions/install@v3
+      - name: Use gcloud CLI
+        run: 'gcloud info'
+      # TODO - get Cloudflare secret, actually deploy 😆
