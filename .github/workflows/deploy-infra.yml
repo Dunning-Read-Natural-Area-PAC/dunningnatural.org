@@ -32,16 +32,23 @@ jobs:
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
           cd deployment
           terraform init
-          terraform plan -out plan
+          set +e
+          terraform plan -out plan -detailed-exitcode
+          plan_exitcode=$?
+          set -e
+          echo "::set-output name=plan_exitcode::$plan_exitcode"
+          if [[ $plan_exitcode == 2 ]]; then exit 0; else exit $plan_exitcode; fi
       - name: Upload plan
         uses: actions/upload-artifact@v4.3.3
         with:
           name: plan
           path: deployment/plan
           if-no-files-found: error
+
   apply:
     name: apply
     needs: plan
+    if: needs.plan.outputs.plan_exitcode == 2
     runs-on: ubuntu-22.04
     environment: "Infra - Prod"
     permissions:

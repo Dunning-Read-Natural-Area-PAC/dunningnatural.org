@@ -4,3 +4,4 @@ node_modules/
 assets/css/tailwind.css
 resources/
 deployment/.terraform/
+plan

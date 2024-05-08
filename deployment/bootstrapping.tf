@@ -1,6 +1,40 @@
 data "google_client_config" "current" {
 }
 
+resource "google_secret_manager_secret" "cloudflare_api_token" {
+  secret_id = "cloudflare_api_token"
+
+  version_aliases = {
+    "current" = "1" # secret version 1 created manually
+  }
+
+  replication {
+    auto {}
+  }
+}
+
+#
+# GCP project setup
+#
+
+locals {
+  services = toset([
+    "iam.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "sts.googleapis.com",
+  ])
+}
+
+resource "google_project_service" "service" {
+  for_each = local.services
+  project  = data.google_client_config.current.project
+  service  = each.value
+}
+
+#
+# State storage
+#
+
 resource "google_storage_bucket" "tfstate" {
   name                        = "${data.google_client_config.current.project}-bucket-tfstate"
   force_destroy               = false
@@ -12,16 +46,16 @@ resource "google_storage_bucket" "tfstate" {
   }
 }
 
-resource "google_secret_manager_secret" "cloudflare_api_token" {
-  secret_id = "cloudflare_api_token"
+#
+# IAM for GitHub Actions
+#
 
-  version_aliases = {
-    "current" = "1"
-  }
-
-  replication {
-    auto {}
-  }
+resource "google_project_iam_custom_role" "infra_deployer_role" {
+  role_id = "infraDeployer"
+  title   = "Pipeline infra deployer role"
+  permissions = [
+    "storage.buckets.getIamPolicy"
+  ]
 }
 
 resource "google_iam_workload_identity_pool" "github_actions" {
@@ -67,28 +101,8 @@ resource "google_project_iam_member" "github_actions_project" {
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
-resource "google_project_iam_custom_role" "infra_deployer_role" {
-  role_id     = "infraDeployer"
-  title       = "Pipeline infra deployer role"
-  permissions = ["storage.buckets.getIamPolicy"]
-}
-
 resource "google_project_iam_member" "github_actions_infra_deployer_role" {
   project = data.google_client_config.current.project
   role    = google_project_iam_custom_role.infra_deployer_role.name
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
-}
-
-locals {
-  services = toset([
-    "iam.googleapis.com",
-    "cloudresourcemanager.googleapis.com",
-    "sts.googleapis.com",
-  ])
-}
-
-resource "google_project_service" "service" {
-  for_each = local.services
-  project  = data.google_client_config.current.project
-  service  = each.value
 }
