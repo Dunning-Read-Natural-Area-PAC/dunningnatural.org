@@ -48,5 +48,5 @@ resource "google_secret_manager_secret_iam_member" "member" {
   project = google_secret_manager_secret.cloudflare_api_token.project
   secret_id = google_secret_manager_secret.cloudflare_api_token.secret_id
   role = "roles/secretmanager.secretAccessor"
-  member = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/attribute.repository_id/788183416"
+  member = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
