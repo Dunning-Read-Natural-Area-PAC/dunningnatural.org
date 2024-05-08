@@ -35,6 +35,8 @@ resource "google_iam_workload_identity_pool_provider" "github_actions_provider" 
     "attribute.repository_owner_id" = "assertion.repository_owner_id"
   }
 
+  # 834173 = https://github.com/mdjnewman
+  # 788183416 = https://github.com/mdjnewman/dunningnatural.org
   attribute_condition = "assertion.repository_owner_id == '834173' && assertion.repository_id == '788183416'"
 
   oidc {
@@ -46,5 +48,5 @@ resource "google_secret_manager_secret_iam_member" "member" {
   project = google_secret_manager_secret.cloudflare_api_token.project
   secret_id = google_secret_manager_secret.cloudflare_api_token.secret_id
   role = "roles/secretmanager.secretAccessor"
-  member = "principalSet://iam.googleapis.com/projects/7571523860/locations/global/workloadIdentityPools/github-actions/attribute.repository_id/788183416"
+  member = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/attribute.repository_id/788183416"
 }
