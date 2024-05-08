@@ -53,3 +53,9 @@ resource "google_secret_manager_secret_iam_member" "member" {
   role      = "roles/secretmanager.secretAccessor"
   member    = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
+
+resource "google_storage_bucket_iam_member" "github_actions_bucket_access" {
+  bucket    = google_storage_bucket.tfstate.name
+  role      = "roles/storage.objectAdmin"
+  member    = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+}
