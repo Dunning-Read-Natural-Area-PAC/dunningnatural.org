@@ -36,7 +36,7 @@ jobs:
           terraform plan -out plan -detailed-exitcode
           plan_exitcode=$?
           set -e
-          echo "::set-output name=plan_exitcode::$plan_exitcode"
+          echo "plan_exitcode=$plan_exitcode" >> $GITHUB_OUTPUT
           if [[ $plan_exitcode == 2 ]]; then exit 0; else exit $plan_exitcode; fi
       - name: Upload plan
         uses: actions/upload-artifact@v4.3.3
