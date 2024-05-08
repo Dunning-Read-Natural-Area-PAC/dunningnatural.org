@@ -26,11 +26,9 @@ jobs:
         with:
           project_id: 'dunningnatural-3e6e829d'
           workload_identity_provider: 'projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
-      - name: Set CloudFlare secret
-        id: set-cf-secret
-        run: |
-          CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
+      - run: |
+          export CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
-          echo "cloudflare-api-token=${CLOUDFLARE_API_TOKEN}" >> "$GITHUB_OUTPUT"
-      - run: cd deployment && terraform init
-      - run: cd deployment && terraform plan
+          cd deployment
+          terraform init
+          terraform plan
