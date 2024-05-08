@@ -9,7 +9,7 @@ on:
   workflow_dispatch:  
 
 jobs:
-  build:
+  plan:
     name: plan
     runs-on: ubuntu-22.04
     permissions:
@@ -26,9 +26,45 @@ jobs:
         with:
           project_id: 'dunningnatural-3e6e829d'
           workload_identity_provider: 'projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
-      - run: |
+      - name: Initialise and plan
+        run: |
           export CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
           cd deployment
           terraform init
-          terraform plan
+          terraform plan -out plan
+      - name: Upload plan
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: plan
+          path: deployment/plan
+          if-no-files-found: error
+  apply:
+    name: apply
+    runs-on: ubuntu-22.04
+    environment: "Infra - Prod"
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - uses: asdf-vm/actions/setup@v3
+      - uses: asdf-vm/actions/plugins-add@v3
+      - name: Download plan
+        uses: actions/download-artifact@v4
+        with:
+          name: plan
+          path: deployment
+      - run: asdf install gcloud && asdf install terraform
+      - name: Authenticate to GCP
+        uses: 'google-github-actions/auth@v2'
+        with:
+          project_id: 'dunningnatural-3e6e829d'
+          workload_identity_provider: 'projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
+      - name: apply
+        run: |
+          export CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
+          echo "::add-mask::$CLOUDFLARE_API_TOKEN"
+          cd deployment
+          terraform apply plan
