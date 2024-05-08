@@ -41,6 +41,7 @@ jobs:
           if-no-files-found: error
   apply:
     name: apply
+    needs: plan
     runs-on: ubuntu-22.04
     environment: "Infra - Prod"
     permissions:
