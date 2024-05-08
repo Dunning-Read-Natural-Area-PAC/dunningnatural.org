@@ -3,6 +3,7 @@ on:
     branches:
     - main
     paths-ignore:
+    - '.github/workflows/deploy-infra.yml'
     - 'deployment/**'
     - 'docs/**'
     - '.gitignore'

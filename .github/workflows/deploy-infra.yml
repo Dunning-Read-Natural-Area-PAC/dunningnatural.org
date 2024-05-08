@@ -3,6 +3,7 @@ on:
     branches:
     - main
     paths:
+    - '.github/workflows/deploy-infra.yml'
     - '.tool-versions'
     - 'deployment/**'
   workflow_dispatch:  
