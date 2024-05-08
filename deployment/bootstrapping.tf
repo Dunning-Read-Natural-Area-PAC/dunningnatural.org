@@ -59,3 +59,17 @@ resource "google_storage_bucket_iam_member" "github_actions_bucket_access" {
   role      = "roles/storage.objectAdmin"
   member    = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
+
+locals {
+  services = toset([
+    "iam.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "sts.googleapis.com",
+  ])
+}
+
+resource "google_project_service" "service" {
+  for_each = local.services
+  project  = data.google_client_config.current.project
+  service  = each.value
+}
