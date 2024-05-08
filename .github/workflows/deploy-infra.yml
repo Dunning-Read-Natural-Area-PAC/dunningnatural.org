@@ -68,4 +68,5 @@ jobs:
           export CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
           cd deployment
+          terraform init
           terraform apply plan
