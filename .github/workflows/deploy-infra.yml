@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build & deploy site
+    name: plan
     runs-on: ubuntu-22.04
     permissions:
       contents: 'read'
@@ -18,9 +18,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v3
-      - run: npm clean-install
-      - name: Build static site
-        run: npm run build
       - name: Authenticate to GCP
         uses: 'google-github-actions/auth@v2'
         with:
@@ -32,6 +29,5 @@ jobs:
           CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
           echo "cloudflare-api-token=${CLOUDFLARE_API_TOKEN}" >> "$GITHUB_OUTPUT"
-      - name: Plan
-        run: |
-          terraform plan
+      - run: cd deployment && terraform init
+      - run: cd deployment && terraform plan
