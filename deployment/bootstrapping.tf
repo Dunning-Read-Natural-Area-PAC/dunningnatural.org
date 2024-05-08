@@ -61,6 +61,12 @@ resource "google_storage_bucket_iam_member" "github_actions_bucket_access" {
   member = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
+resource "google_project_iam_member" "github_actions_project" {
+  project = data.google_client_config.current.project
+  role    = "roles/viewer"
+  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+}
+
 locals {
   services = toset([
     "iam.googleapis.com",
