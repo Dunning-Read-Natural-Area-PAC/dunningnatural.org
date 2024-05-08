@@ -67,6 +67,18 @@ resource "google_project_iam_member" "github_actions_project" {
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
+resource "google_project_iam_custom_role" "infra_deployer_role" {
+  role_id     = "infraDeployer"
+  title       = "Pipeline infra deployer role"
+  permissions = ["storage.buckets.getIamPolicy"]
+}
+
+resource "google_project_iam_member" "github_actions_infra_deployer_role" {
+  project = data.google_client_config.current.project
+  role    = google_project_iam_custom_role.infra_deployer_role.name
+  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+}
+
 locals {
   services = toset([
     "iam.googleapis.com",
