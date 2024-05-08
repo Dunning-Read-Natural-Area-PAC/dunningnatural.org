@@ -2,10 +2,11 @@ data "google_client_config" "current" {
 }
 
 resource "google_storage_bucket" "tfstate" {
-  name          = "${data.google_client_config.current.project}-bucket-tfstate"
-  force_destroy = false
-  location      = data.google_client_config.current.region
-  storage_class = "STANDARD"
+  name                        = "${data.google_client_config.current.project}-bucket-tfstate"
+  force_destroy               = false
+  location                    = data.google_client_config.current.region
+  uniform_bucket_level_access = true
+  storage_class               = "STANDARD"
   versioning {
     enabled = true
   }
@@ -55,9 +56,9 @@ resource "google_secret_manager_secret_iam_member" "member" {
 }
 
 resource "google_storage_bucket_iam_member" "github_actions_bucket_access" {
-  bucket    = google_storage_bucket.tfstate.name
-  role      = "roles/storage.objectAdmin"
-  member    = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+  bucket = google_storage_bucket.tfstate.name
+  role   = "roles/storage.objectAdmin"
+  member = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
 locals {
