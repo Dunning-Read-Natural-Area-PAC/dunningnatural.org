@@ -1,3 +1,6 @@
+data "google_client_config" "current" {
+}
+
 resource "google_storage_bucket" "tfstate" {
   name          = "${data.google_client_config.current.project}-bucket-tfstate"
   force_destroy = false
