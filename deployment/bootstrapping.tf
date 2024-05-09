@@ -74,8 +74,9 @@ resource "google_iam_workload_identity_pool_provider" "github_actions_provider" 
   }
 
   # 834173 = https://github.com/mdjnewman
+  # 169319860 = https://github.com/Dunning-Read-Natural-Area-PAC
   # 788183416 = https://github.com/mdjnewman/dunningnatural.org
-  attribute_condition = "assertion.repository_owner_id == '834173' && assertion.repository_id == '788183416'"
+  attribute_condition = "assertion.repository_owner_id == '169319860' && assertion.repository_id == '788183416'"
 
   oidc {
     issuer_uri = "https://token.actions.githubusercontent.com"
