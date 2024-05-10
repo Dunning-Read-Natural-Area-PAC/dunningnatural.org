@@ -19,8 +19,12 @@ resource "google_secret_manager_secret" "cloudflare_api_token" {
 
 locals {
   services = toset([
-    "iam.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "cloudfunctions.googleapis.com",
     "cloudresourcemanager.googleapis.com",
+    "iam.googleapis.com",
+    "logging.googleapis.com",
+    "pubsub.googleapis.com",
     "sts.googleapis.com",
   ])
 }
