@@ -26,6 +26,21 @@ resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
   }
 }
 
+resource "google_secret_manager_secret" "instagram_secret_rotator_cloudflare_token" {
+  secret_id = "instagram_secret_rotator_cloudflare_token"
+
+  replication {
+    auto {}
+  }
+}
+
+resource "google_secret_manager_secret_iam_member" "instagram_secret_rotator_cloudflare_token_access" {
+  project   = google_secret_manager_secret.instagram_secret_rotator_cloudflare_token.project
+  secret_id = google_secret_manager_secret.instagram_secret_rotator_cloudflare_token.secret_id
+  role      = "roles/secretmanager.secretAccessor"
+  member    = "serviceAccount:${google_service_account.instagram_secret_rotator_service_account.email}"
+}
+
 resource "google_service_account" "instagram_secret_rotator_service_account" {
   account_id   = "instagram-secret-rotator"
   display_name = "Instagram Secret Rotator Service Account"
