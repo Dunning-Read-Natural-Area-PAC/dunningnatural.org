@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "drna_instagram_feed/**"
+      - .github/workflows/deploy-ig-feed.yml
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: "read"
+      id-token: "write"
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - uses: asdf-vm/actions/setup@v3
+      - uses: asdf-vm/actions/plugins-add@v3
+      - run: asdf install gcloud && asdf install terraform
+      - name: Authenticate to GCP
+        uses: "google-github-actions/auth@v2"
+        with:
+          project_id: "dunningnatural-3e6e829d"
+          workload_identity_provider: "projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider"
+      - id: deploy
+        name: Deploy refresh function
+        run: |
+          export CLOUDFLARE_API_TOKEN=$(./scripts/fetch_cloudflare_secret.sh)
+          echo "::add-mask::$CLOUDFLARE_API_TOKEN"
+          cd deployment
+          terraform init
+          service_account=$(terraform output -raw service_account)
+          topic=$(terraform output -raw topic)
+          cd drna_instagram_feed/token_refresh
+          gcloud functions deploy ig_feed_token_refresh --gen2 --runtime=python312 --region=us-central1 --service-account="$service_account" --trigger-topic="$topic" --source=.

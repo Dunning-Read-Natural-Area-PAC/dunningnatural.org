@@ -62,5 +62,9 @@ resource "google_pubsub_topic_iam_member" "secret_manager_topic" {
 }
 
 output "service_account" {
-  value = google_service_account.instagram_secret_rotator_service_account.member
+  value = google_service_account.instagram_secret_rotator_service_account.email
+}
+
+output "topic" {
+  value = google_pubsub_topic.instagram_secret_rotator.id
 }
