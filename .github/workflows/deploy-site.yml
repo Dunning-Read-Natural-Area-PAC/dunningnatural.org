@@ -1,23 +1,24 @@
 on:
   push:
     branches:
-    - main
+      - main
     paths-ignore:
-    - '.github/workflows/deploy-infra.yml'
-    - 'deployment/**'
-    - 'docs/**'
-    - '.gitignore'
-    - 'CONTRIBUTING.md'
-    - 'README.md'
-  workflow_dispatch:  
+      - ".github/workflows/deploy-infra.yml"
+      - "deployment/**"
+      - "drna_instagram_feed/**"
+      - "docs/**"
+      - ".gitignore"
+      - "CONTRIBUTING.md"
+      - "README.md"
+  workflow_dispatch:
 
 jobs:
   build:
     name: Build & deploy site
     runs-on: ubuntu-22.04
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: "read"
+      id-token: "write"
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -26,10 +27,10 @@ jobs:
       - name: Build static site
         run: npm run build
       - name: Authenticate to GCP
-        uses: 'google-github-actions/auth@v2'
+        uses: "google-github-actions/auth@v2"
         with:
-          project_id: 'dunningnatural-3e6e829d'
-          workload_identity_provider: 'projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider'
+          project_id: "dunningnatural-3e6e829d"
+          workload_identity_provider: "projects/7571523860/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider"
       - name: Set CloudFlare secret
         id: set-cf-secret
         run: |
