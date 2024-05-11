@@ -36,4 +36,4 @@ jobs:
           service_account=$(terraform output -raw service_account)
           topic=$(terraform output -raw topic)
           cd ../drna_instagram_feed/token_refresh
-          gcloud functions deploy ig_feed_token_refresh --gen2 --runtime=python312 --region=us-central1 --service-account="$service_account" --trigger-topic="$topic" --source=.
+          gcloud functions deploy ig_feed_token_refresh --gen2 --runtime=python312 --region=us-central1 --service-account="$service_account" --trigger-topic="$topic" --entry-point=pubsub_handler --source=.
