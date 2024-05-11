@@ -66,5 +66,5 @@ output "service_account" {
 }
 
 output "topic" {
-  value = google_pubsub_topic.instagram_secret_rotator.id
+  value = google_pubsub_topic.instagram_secret_rotator.name
 }
