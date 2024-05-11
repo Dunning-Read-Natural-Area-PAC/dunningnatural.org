@@ -26,7 +26,7 @@ resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
   }
 
   topics {
-    name = google_pubsub_topic.instagram_secret_rotator.name
+    name = google_pubsub_topic.instagram_secret_rotator.id
   }
 }
 
