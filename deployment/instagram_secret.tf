@@ -12,10 +12,6 @@ resource "google_storage_bucket" "instagram_secret_rotator_src" {
 resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
   secret_id = "drna_instagram_long_lived_token"
 
-  version_aliases = {
-    # "current" = "1" # secret version 1 created manually
-  }
-
   replication {
     auto {}
   }

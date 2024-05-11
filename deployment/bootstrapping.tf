@@ -7,10 +7,6 @@ data "google_project" "project" {
 resource "google_secret_manager_secret" "cloudflare_api_token" {
   secret_id = "cloudflare_api_token"
 
-  version_aliases = {
-    "current" = "1" # secret version 1 created manually
-  }
-
   replication {
     auto {}
   }
