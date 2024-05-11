@@ -60,3 +60,7 @@ resource "google_pubsub_topic_iam_member" "secret_manager_topic" {
   role    = "roles/pubsub.publisher"
   member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-secretmanager.iam.gserviceaccount.com"
 }
+
+output "service_account" {
+  value = google_service_account.instagram_secret_rotator_service_account.member
+}

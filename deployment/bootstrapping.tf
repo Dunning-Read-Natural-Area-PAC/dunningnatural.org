@@ -25,9 +25,11 @@ locals {
     "cloudbuild.googleapis.com",
     "cloudfunctions.googleapis.com",
     "cloudresourcemanager.googleapis.com",
+    "eventarc.googleapis.com",
     "iam.googleapis.com",
     "logging.googleapis.com",
     "pubsub.googleapis.com",
+    "run.googleapis.com",
     "sts.googleapis.com",
   ])
 }
@@ -125,6 +127,12 @@ resource "google_project_iam_member" "github_actions_project" {
 resource "google_project_iam_member" "github_actions_infra_deployer_role" {
   project = data.google_client_config.current.project
   role    = google_project_iam_custom_role.infra_deployer_role.name
+  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+}
+
+resource "google_project_iam_member" "github_actions_cloudfunctions_admin" {
+  project = data.google_client_config.current.project
+  role    = "roles/cloudfunctions.admin"
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
