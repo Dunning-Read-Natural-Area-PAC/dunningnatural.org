@@ -35,12 +35,6 @@ resource "google_service_account" "instagram_secret_rotator_service_account" {
   display_name = "Instagram Secret Rotator Service Account"
 }
 
-resource "google_project_iam_member" "instagram_secret_rotator_service_account" {
-  project = data.google_client_config.current.project
-  role    = "roles/viewer"
-  member  = "serviceAccount:${google_service_account.instagram_secret_rotator_service_account.email}"
-}
-
 resource "google_pubsub_topic" "instagram_secret_rotator" {
   name                       = "instagram-secret-rotator"
   message_retention_duration = "3600s"
