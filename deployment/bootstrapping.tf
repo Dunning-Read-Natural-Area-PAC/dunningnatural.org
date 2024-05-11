@@ -71,6 +71,7 @@ resource "google_project_iam_custom_role" "infra_deployer_role" {
     "iam.serviceAccounts.update",
     "pubsub.topics.create",
     "pubsub.topics.attachSubscription",
+    "pubsub.topics.getIamPolicy",
     "pubsub.topics.setIamPolicy",
     "pubsub.topics.update",
   ]
