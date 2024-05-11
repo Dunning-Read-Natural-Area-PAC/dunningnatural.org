@@ -74,6 +74,7 @@ resource "google_project_iam_custom_role" "infra_deployer_role" {
     "pubsub.topics.getIamPolicy",
     "pubsub.topics.setIamPolicy",
     "pubsub.topics.update",
+    "secretmanager.secrets.create",
   ]
 }
 
