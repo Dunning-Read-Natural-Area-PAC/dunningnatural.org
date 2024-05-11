@@ -22,7 +22,7 @@ resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
 
   rotation {
     next_rotation_time = "2024-05-20T21:48:07Z"
-    rotation_period    = "43200s" # 30d
+    rotation_period    = "2592000s" # 30d
   }
 
   topics {
