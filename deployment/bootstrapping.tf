@@ -61,7 +61,18 @@ resource "google_project_iam_custom_role" "infra_deployer_role" {
   role_id = "infraDeployer"
   title   = "Pipeline infra deployer role"
   permissions = [
-    "storage.buckets.getIamPolicy"
+    "storage.buckets.getIamPolicy",
+    "storage.buckets.create",
+    "storage.buckets.enableObjectRetention",
+    "storage.buckets.setIamPolicy",
+    "storage.buckets.update",
+    "iam.serviceAccounts.create",
+    "iam.serviceAccounts.setIamPolicy",
+    "iam.serviceAccounts.update",
+    "pubsub.topics.create",
+    "pubsub.topics.attachSubscription",
+    "pubsub.topics.setIamPolicy",
+    "pubsub.topics.update",
   ]
 }
 
