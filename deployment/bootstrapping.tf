@@ -1,6 +1,9 @@
 data "google_client_config" "current" {
 }
 
+data "google_project" "project" {
+}
+
 resource "google_secret_manager_secret" "cloudflare_api_token" {
   secret_id = "cloudflare_api_token"
 
@@ -110,4 +113,15 @@ resource "google_project_iam_member" "github_actions_infra_deployer_role" {
   project = data.google_client_config.current.project
   role    = google_project_iam_custom_role.infra_deployer_role.name
   member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+}
+
+resource "google_project_iam_member" "github_actions_iam" {
+  project = data.google_client_config.current.project
+  role    = "roles/resourcemanager.projectIamAdmin"
+  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+
+  condition {
+    title      = ""
+    expression = "api.getAttribute('iam.googleapis.com/modifiedGrantsByRole', []).hasOnly(['roles/pubsub.publisher', 'roles/pubsub.subscriber', 'roles/viewer'])"
+  }
 }
