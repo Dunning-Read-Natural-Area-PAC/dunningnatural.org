@@ -5,6 +5,7 @@
 - [Why a static site?](./docs/Why%20a%20static%20site.md)
 - [Contributing](./CONTRIBUTING.md)
 - [Deployment](./docs/Deployment.md)
+- [How the Instagram feed works](./docs/Instagram.md)
 
 ## Local development
 

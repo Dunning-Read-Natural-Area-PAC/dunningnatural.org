@@ -42,6 +42,8 @@ def rotate(secret_id, current_version_id):
 
     client = secretmanager.SecretManagerServiceClient()
 
+    LOGGER.info("Requesting secret", extra={"version_id": current_version_id})
+
     access_secret_version_response = client.access_secret_version(
         name=current_version_id
     )

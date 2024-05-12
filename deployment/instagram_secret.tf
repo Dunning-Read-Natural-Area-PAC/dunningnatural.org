@@ -1,14 +1,3 @@
-resource "google_storage_bucket" "instagram_secret_rotator_src" {
-  name                        = "${data.google_client_config.current.project}-bucket-instagram-secret-rotator-src"
-  force_destroy               = false
-  location                    = data.google_client_config.current.region
-  uniform_bucket_level_access = true
-  storage_class               = "STANDARD"
-  versioning {
-    enabled = true
-  }
-}
-
 resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
   secret_id = "drna_instagram_long_lived_token"
 
