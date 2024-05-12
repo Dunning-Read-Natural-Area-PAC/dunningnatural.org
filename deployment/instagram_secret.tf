@@ -16,10 +16,6 @@ resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
     auto {}
   }
 
-  rotation {
-    rotation_period    = "2592000s" # 30d
-  }
-
   topics {
     name = google_pubsub_topic.instagram_secret_rotator.id
   }
