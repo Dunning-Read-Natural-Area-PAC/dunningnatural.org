@@ -33,6 +33,6 @@ GitHub Actions has the ability to read these resources (mostly through the premi
 
 ## GitHub Actions
 
-GitHub Actions workflows build the static site and update infrastructure (just CloudFlare, really).
+GitHub Actions workflows build the static site and update infrastructure.
 
 If changes to the infrastructure are required, this needs to be approved by someone listed as a reviewer on the `Infra - Prod` environment.
