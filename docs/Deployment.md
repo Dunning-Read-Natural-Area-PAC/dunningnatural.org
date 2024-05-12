@@ -9,6 +9,7 @@ A single CloudFlare account holds:
 - the `dunningnatural.org` domain name registration
 - the `dunningnatural.org` DNS records
 - a CloudFlare pages project that GitHub Actions deploys to
+  - this pages project makes use of CloudFlare Pages Functions to enable fetching Instgram posts from the server side
 
 Access to this account is manual, or using the `drna-terraform` user API token that is created under @mdjnewman's user.
 
@@ -24,6 +25,7 @@ GCP usage is fairly limited at the moment, really only for:
 
 - storing the CloudFlare token described above (which could have easily been a GHA environment secret); and
 - state storage for Terraform
+- periodically rotating the long-lived user access token for the Instagram Basic Display API.
 
 A note on bootstrapping - most resources in [bootstrapping.tf](https://github.com/mdjnewman/dunningnatural.org/blob/c4854e5bef67353b61565702741a218d6b35ad0e/deployment/bootstrapping.tf) were created using @mdjnewman's Owner access to the GCP project.
 
