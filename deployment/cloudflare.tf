@@ -36,3 +36,19 @@ resource "cloudflare_record" "dunningnatural_TXT" {
   value   = "v=spf1 -all"
   zone_id = cloudflare_zone.dunningnatural_zone.id
 }
+
+import {
+  to = cloudflare_page_rule.cache_ig
+  id = "b0e21706ef78bc21c2342e2a1be6cc22/57b8c9d7103910951b2542d27d3f6c9f"
+}
+
+resource "cloudflare_page_rule" "cache_ig" {
+  priority = 1
+  status   = "active"
+  target   = "*dunningnatural.org/recent-instagram-posts"
+  zone_id  = "b0e21706ef78bc21c2342e2a1be6cc22"
+  actions {
+    cache_level                 = "cache_everything"
+    explicit_cache_control      = "on"
+  }
+}
