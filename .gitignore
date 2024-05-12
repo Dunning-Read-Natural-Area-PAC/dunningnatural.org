@@ -7,4 +7,4 @@ deployment/.terraform/
 plan
 .vscode/
 SCRATCH.md
-static/.dev.vars
+.dev.vars

@@ -1,16 +1,13 @@
-// Replace with your Instagram Access Token
-const accessToken = 'IGQWROS3FwZAFA2Q3Eyemd4cHBaV0hjT0x1RFV1N2ZAicTEybnlLVjFiNGI3U1RMZAHA1dEplOUVBMEhWaU9hN0dVNDhfaFJpbjU4cjNORDV2dWhQbjhkZAzIyU2dBM3NMSmcxbzBqeGpFMHNmYTVGM3kxMkU4bVZAILVkZD';
-
 // Function to fetch and display Instagram feed
 function getInstagramFeed() {
-    fetch(`https://graph.instagram.com/v19.0/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${accessToken}`)
+    fetch(`/recent-instagram-posts`)
         .then(response => {
             if (response.ok) {
                 return response.json();
             }
             return Promise.reject(response);
         })
-        .then(data => data.data.slice(0, 15))
+        .then(data => data.posts)
         .then(data => {
             const feedContainer = document.getElementById('ig-feed');
 
