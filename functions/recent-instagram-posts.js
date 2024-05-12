@@ -10,7 +10,18 @@ async function getInstagramFeed(accessToken) {
     return body.data.slice(0, 15)
 }
 
+function cache_headers() {
+    const result = new Headers();
+    result.append("Cache-Control", "public, immutable, max-age=3600");
+    return result
+}
+
 export async function onRequest(context) {
     var posts = await getInstagramFeed(context.env.INSTAGRAM_TOKEN)
-    return new Response(JSON.stringify({ posts }))
+
+    var response_options = {
+        headers: cache_headers()
+    }
+
+    return new Response(JSON.stringify({ posts }), response_options)
 }
