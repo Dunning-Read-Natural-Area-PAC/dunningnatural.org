@@ -25,6 +25,7 @@ proto-plus==1.23.0
 protobuf==4.25.3
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
+python-json-logger==2.0.7
 requests==2.31.0
 rsa==4.9
 urllib3==2.2.1
