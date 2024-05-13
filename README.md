@@ -18,6 +18,7 @@ The below assume you're using a Unix shell. If you're using Windows, consider us
 ### Running website for development
 
 ```sh
+npm clean-install
 npm start
 ```
 
