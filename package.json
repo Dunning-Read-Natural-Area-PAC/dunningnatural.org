@@ -10,7 +10,7 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "rimraf": "^5.0.7",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^3.4.4",
     "wrangler": "^3.57.0"
   }
 }
