@@ -1,0 +1,6 @@
+cloudevents
+functions-framework
+google-cloud-secret-manager
+google-crc32c
+python-json-logger
+requests
