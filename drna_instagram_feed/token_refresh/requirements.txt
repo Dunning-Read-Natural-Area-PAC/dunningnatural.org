@@ -24,7 +24,7 @@ deprecation==2.1.0
     # via cloudevents
 flask==3.0.3
     # via functions-framework
-functions-framework==3.5.0
+functions-framework==3.8.0
     # via -r requirements.in
 google-api-core[grpc]==2.19.0
     # via google-cloud-secret-manager
@@ -98,4 +98,6 @@ urllib3==2.2.2
 watchdog==4.0.1
     # via functions-framework
 werkzeug==3.0.3
-    # via flask
+    # via
+    #   flask
+    #   functions-framework
