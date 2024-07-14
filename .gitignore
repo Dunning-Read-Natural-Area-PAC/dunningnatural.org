@@ -8,3 +8,4 @@ plan
 .vscode/
 SCRATCH.md
 .dev.vars
+.wrangler/
