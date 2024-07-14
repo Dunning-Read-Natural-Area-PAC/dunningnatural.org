@@ -8,6 +8,12 @@ resource "google_secret_manager_secret" "drna_instagram_long_lived_token" {
   topics {
     name = google_pubsub_topic.instagram_secret_rotator.id
   }
+
+  lifecycle {
+    ignore_changes = [
+      rotation
+    ]
+  }
 }
 
 resource "google_secret_manager_secret" "instagram_secret_rotator_cloudflare_token" {
