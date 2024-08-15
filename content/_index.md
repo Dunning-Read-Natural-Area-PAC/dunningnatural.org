@@ -8,9 +8,9 @@ draft = false
 
 # Free nature art workshops at DRNA ## { class="text-2xl sm:text-4xl lg:text-6xl" }
 
-Registration is required. Please complete the [registration form](https://forms.gle/SYMTRVWSXXRiwncS8) to record your interest.
+Registration is required. Please complete the **[registration form](https://forms.gle/SYMTRVWSXXRiwncS8)** to record your interest.
 
-{{< fig loading="lazy" src="images/DRNA Arts in Conservation flyer 8_8_24_p1.png" alt="Flyer for a series of free, public workshops exploring art & nature on Saturday mornings from 10AM - noon,  September 7th through October 26, 2024." class="w-full object-cover" >}}
+{{< fig loading="lazy" src="images/DRNA Arts in Conservation flyer 8_8_24_p1.png" alt="Flyer for a series of free, public workshops exploring art & nature on Saturday mornings from 10AM - noon,  September 7th through October 26, 2024." class="w-full object-cover" link="https://forms.gle/SYMTRVWSXXRiwncS8" >}}
 
 This project is partially supported by a Neighborhood Access Program grant from the City of Chicago Department of Cultural Affairs and Special Events.
 
