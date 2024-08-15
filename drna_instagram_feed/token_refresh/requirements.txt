@@ -6,7 +6,7 @@
 #
 blinker==1.8.2
     # via flask
-cachetools==5.3.3
+cachetools==5.4.0
     # via google-auth
 certifi==2024.7.4
     # via requests
@@ -28,11 +28,11 @@ functions-framework==3.8.1
     # via -r requirements.in
 google-api-core[grpc]==2.19.1
     # via google-cloud-secret-manager
-google-auth==2.32.0
+google-auth==2.33.0
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-google-cloud-secret-manager==2.20.1
+google-cloud-secret-manager==2.20.2
     # via -r requirements.in
 google-crc32c==1.5.0
     # via -r requirements.in
@@ -43,15 +43,15 @@ googleapis-common-protos[grpc]==1.63.2
     #   grpcio-status
 grpc-google-iam-v1==0.13.1
     # via google-cloud-secret-manager
-grpcio==1.64.1
+grpcio==1.65.4
     # via
     #   google-api-core
     #   googleapis-common-protos
     #   grpc-google-iam-v1
     #   grpcio-status
-grpcio-status==1.64.1
+grpcio-status==1.65.4
     # via google-api-core
-gunicorn==22.0.0
+gunicorn==23.0.0
     # via functions-framework
 idna==3.7
     # via requests
@@ -71,7 +71,7 @@ proto-plus==1.24.0
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-protobuf==5.27.2
+protobuf==5.27.3
     # via
     #   google-api-core
     #   google-cloud-secret-manager
@@ -95,7 +95,7 @@ rsa==4.9
     # via google-auth
 urllib3==2.2.2
     # via requests
-watchdog==4.0.1
+watchdog==4.0.2
     # via functions-framework
 werkzeug==3.0.3
     # via
