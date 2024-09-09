@@ -34,7 +34,7 @@ google-auth==2.33.0
     #   google-cloud-secret-manager
 google-cloud-secret-manager==2.20.2
     # via -r requirements.in
-google-crc32c==1.5.0
+google-crc32c==1.6.0
     # via -r requirements.in
 googleapis-common-protos[grpc]==1.63.2
     # via
