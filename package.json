@@ -1,15 +1,11 @@
 {
   "scripts": {
     "tailwind": "tailwindcss --input ./src/input.css --output ./assets/css/tailwind.css --config src/tailwind.config.js",
-    "stage-static": "mkdir -p public && cp wrangler.toml public/",
-
     "clean": "rimraf public/",
-
     "prestart": "npm run clean",
-    "start": "npm run tailwind && npm run stage-static && concurrently --kill-others \"hugo --watch\" \"npm run tailwind -- --watch\" \"npx wrangler pages dev public/\"",
-
+    "start": "npm run tailwind && concurrently --kill-others \"hugo --watch\" \"npm run tailwind -- --watch\" \"npx wrangler pages dev public/\"",
     "prebuild": "npm run clean",
-    "build": "npm run tailwind && npm run stage-static && hugo"
+    "build": "npm run tailwind && hugo"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
