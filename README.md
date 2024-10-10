@@ -22,6 +22,12 @@ npm clean-install
 npm start
 ```
 
+If you need to test the Instagram feed, you'll need to populate the [dev variables file](./.dev.vars) with the token:
+
+```sh
+echo "INSTAGRAM_TOKEN = \"$(gcloud --project=dunningnatural-3e6e829d secrets versions access latest --secret=drna_instagram_long_lived_token)\"" > .dev.vars
+```
+
 ### Full build
 
 To generate a "production" build in `./public/`:
