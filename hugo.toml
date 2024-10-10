@@ -25,9 +25,14 @@ pageRef = '/calendar'
 weight = 40
 
 [[menus.main]]
+name = 'Audio tour'
+pageRef = '/tour'
+weight = 50
+
+[[menus.main]]
 name = 'Contact us'
 pageRef = '/contact'
-weight = 50
+weight = 60
 
 [module]
   [module.hugoVersion]
