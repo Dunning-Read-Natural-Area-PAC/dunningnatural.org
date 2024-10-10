@@ -1,7 +1,7 @@
 {
   "scripts": {
     "tailwind": "tailwindcss --input ./src/input.css --output ./assets/css/tailwind.css --config src/tailwind.config.js",
-    "clean": "rimraf public/",
+    "clean": "rimraf public/ resources/ .wrangler/",
     "prestart": "npm run clean",
     "start": "npm run tailwind && concurrently --kill-others \"hugo --watch\" \"npm run tailwind -- --watch\" \"npx wrangler pages dev public/\"",
     "prebuild": "npm run clean",
