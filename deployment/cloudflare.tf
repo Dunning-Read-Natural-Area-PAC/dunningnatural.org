@@ -24,7 +24,7 @@ resource "cloudflare_record" "dunningnatural__dmarc" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  value   = "v=DMARC1; p=none;"
+  content = "v=DMARC1; p=none;"
   zone_id = cloudflare_zone.dunningnatural_zone.id
 }
 
@@ -33,7 +33,7 @@ resource "cloudflare_record" "dunningnatural_TXT" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  value   = "v=spf1 -all"
+  content = "v=spf1 -all"
   zone_id = cloudflare_zone.dunningnatural_zone.id
 }
 
