@@ -44,3 +44,4 @@ jobs:
           accountId: "441225c17ffd0facfc5a66f2ee0f45ac"
           projectName: "dunningnatural-pages"
           directory: public
+          wranglerVersion: '3'
