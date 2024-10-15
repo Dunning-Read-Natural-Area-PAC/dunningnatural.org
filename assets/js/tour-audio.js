@@ -135,10 +135,6 @@ if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('play', () => audioEl.play());
     navigator.mediaSession.setActionHandler('pause', () => audioEl.pause());
     navigator.mediaSession.setActionHandler('seekto', (details) => {
-        if (details.fastSeek && 'fastSeek' in audioEl) {
-            audioEl.fastSeek(details.seekTime);
-            return;
-        }
         audioEl.currentTime = details.seekTime;
     });
 
