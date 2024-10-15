@@ -113,34 +113,57 @@ const markers = [
     }
 ]
 
-const player = document.querySelector('audio');
+const audioEl = document.getElementById("tour-audio");
+
+function updatePositionState() {
+    const positionState = {
+        duration: audioEl.duration,
+        playbackRate: audioEl.playbackRate,
+        position: audioEl.currentTime,
+    }
+
+    console.log(positionState)
+
+    if (audioEl.duration == Infinity) {
+        return;
+    }
+
+    navigator.mediaSession.setPositionState(positionState);
+}
+
+if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', () => audioEl.play());
+    navigator.mediaSession.setActionHandler('pause', () => audioEl.pause());
+    navigator.mediaSession.setActionHandler('seekto', (details) => {
+        if (details.fastSeek && 'fastSeek' in audioEl) {
+            audioEl.fastSeek(details.seekTime);
+            return;
+        }
+        audioEl.currentTime = details.seekTime;
+    });
+
+    audioEl.addEventListener("playing", (event) => {
+        navigator.mediaSession.playbackState = "playing";
+        updatePositionState()
+    });
+
+    audioEl.addEventListener("pause", () => {
+        navigator.mediaSession.playbackState = "paused";
+    });
+
+    audioEl.addEventListener("durationchange", () => {
+        updatePositionState()
+    });
+}
 
 function play(id) {
     const currentMedia = markers.find((o) => o.id == id)
 
-    player.src = currentMedia.src
-    player.play()
+    audioEl.src = currentMedia.src
+    audioEl.play()
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata(currentMedia.metadata);
-
-        navigator.mediaSession.setActionHandler('play', () => player.play());
-        navigator.mediaSession.setActionHandler('pause', () => player.pause());
-
-        player.onplaying = function () {
-            if (player.duration == Infinity) {
-                return
-            }
-
-            const positionState = {
-                duration: player.duration,
-                playbackRate: player.playbackRate,
-                position: player.currentTime,
-            }
-
-            console.log(positionState)
-            navigator.mediaSession.setPositionState(positionState)
-        };
     }
 }
 
