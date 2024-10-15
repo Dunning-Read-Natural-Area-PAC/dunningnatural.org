@@ -8,6 +8,10 @@ resource "cloudflare_pages_project" "dunningnatural-pages" {
   account_id        = cloudflare_account.dunningnatural.id
   name              = "dunningnatural-pages"
   production_branch = "main"
+  build_config {
+    build_caching   = false
+    destination_dir = "public"
+  }
 }
 
 resource "cloudflare_zone" "dunningnatural_zone" {
