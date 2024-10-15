@@ -1,4 +1,15 @@
 on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/workflows/deploy-infra.yml"
+      - "deployment/**"
+      - "drna_instagram_feed/**"
+      - "docs/**"
+      - ".gitignore"
+      - "CONTRIBUTING.md"
+      - "README.md"
   push:
     branches:
       - main
