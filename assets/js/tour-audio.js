@@ -113,54 +113,51 @@ const markers = [
     }
 ]
 
-const audioEl = document.getElementById("tour-audio");
+let sound;
 
-function updatePositionState() {
+const updatePositionState = function() {
     const positionState = {
-        duration: audioEl.duration,
-        playbackRate: audioEl.playbackRate,
-        position: audioEl.currentTime,
+        duration: sound.duration(),
+        playbackRate: sound.rate(),
+        position: sound.seek(),
     }
 
     console.log(positionState)
 
-    if (audioEl.duration == Infinity) {
-        return;
-    }
-
     navigator.mediaSession.setPositionState(positionState);
 }
 
-if ('mediaSession' in navigator) {
-    navigator.mediaSession.setActionHandler('play', () => audioEl.play());
-    navigator.mediaSession.setActionHandler('pause', () => audioEl.pause());
-    navigator.mediaSession.setActionHandler('seekto', (details) => {
-        audioEl.currentTime = details.seekTime;
+const play = async function (id) {
+    const currentMedia = drnaAudioTour.markers.find((o) => o.id == id)
+
+    const response = await fetch(currentMedia.src);
+    const blob = await response.blob()
+    const objectURL = URL.createObjectURL(blob);
+
+    if (sound) {
+        sound.pause()
+    }
+
+    sound = new Howl({
+        src: [objectURL],
+        html5: true,
+        format: ['mp3'],
     });
-
-    audioEl.addEventListener("playing", (event) => {
-        navigator.mediaSession.playbackState = "playing";
-        updatePositionState()
-    });
-
-    audioEl.addEventListener("pause", () => {
-        navigator.mediaSession.playbackState = "paused";
-    });
-
-    audioEl.addEventListener("durationchange", () => {
-        updatePositionState()
-    });
-}
-
-function play(id) {
-    const currentMedia = markers.find((o) => o.id == id)
-
-    audioEl.src = currentMedia.src
-    audioEl.play()
+    sound.play()
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata(currentMedia.metadata);
     }
+}
+
+
+
+if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', () => sound.play());
+    navigator.mediaSession.setActionHandler('pause', () => sound.pause());
+    navigator.mediaSession.setActionHandler('seekto', (details) => {
+        sound.seek(details.seekTime)
+    });
 }
 
 window.drnaAudioTour = {
