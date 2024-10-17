@@ -24,10 +24,10 @@ name = 'Events'
 pageRef = '/calendar'
 weight = 40
 
-[[menus.main]]
-name = 'Audio tour'
-pageRef = '/tour'
-weight = 50
+# [[menus.main]]
+# name = 'Audio tour'
+# pageRef = '/tour'
+# weight = 50
 
 [[menus.main]]
 name = 'Contact us'
