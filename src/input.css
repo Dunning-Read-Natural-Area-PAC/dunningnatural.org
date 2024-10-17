@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+audio::-webkit-media-controls-panel {
+    /* background-color: #56AEFF; */
+    background-color: theme('colors.green / 40%');
+}
