@@ -1,12 +1,12 @@
 +++
 title = 'Dunning Read Natural Area'
 subtitle = 'Park Advisory Council'
-Description = 'The Dunning Read Natural Area (DRNA) is an approximately 21-acre park in the Dunning neighborhood of northwest Chicago.'
+Description = 'The Dunning Read Natural Area is an approximately 21-acre park in the Dunning neighborhood of northwest Chicago.'
 date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
 
-# Free nature art workshops at DRNA ## { class="text-2xl sm:text-4xl lg:text-6xl" }
+# Free nature art workshops at Dunning Read Natural Area ## { class="text-2xl sm:text-4xl lg:text-6xl" }
 
 Registration is required. Please complete the **[registration form](https://forms.gle/SYMTRVWSXXRiwncS8)** to record your interest.
 

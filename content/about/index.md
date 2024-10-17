@@ -1,6 +1,6 @@
 +++
 title = 'Who we are'
-Description = 'The Dunning Read Natural Area Park Advisory Council is a volunteer group of community members who are passionate about the DRNA'
+Description = 'The Dunning Read Natural Area Park Advisory Council is a volunteer group of passionate community members'
 date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
@@ -9,7 +9,7 @@ draft = false
 
 ## Our Mission   ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
-The Dunning Read Natural Area Park Advisory Council is a volunteer group of community members who are passionate about the DRNA. The group's mission is to support the Chicago Park District in restoring and preserving this natural area to provide a quality habitat for diverse native plants and wildlife as well as opportunities for access, education, and recreation for the entire community.
+The Dunning Read Natural Area Park Advisory Council (PAC) is volunteer group of passionate community members. The group's mission is to support the Chicago Park District in restoring and preserving this natural area to provide a quality habitat for diverse native plants and wildlife as well as opportunities for access, education, and recreation for the entire community.
 
 ## Our Board   ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
@@ -21,13 +21,13 @@ The park advisory council board meets monthly at the Dunning Library. Open commu
 
 ## Volunteer With Us   ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
-Volunteer workdays are held at the DRNA from 9am-12pm on the third Saturday of every month. Activities include clearing invasive species, beautification, litter clean up, and other projects.
+Volunteer workdays are held at Dunning Read Natural Area from 9am-12pm on the third Saturday of every month. Activities include clearing invasive species, beautification, litter clean up, and other projects.
 
 Are you interested in getting involved or being added to our email list? Want to share your thoughts and ideas or ask questions? [Please contact us]({{< ref "/about" >}}). We look forward to hearing from you.
 
 ## Community   ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
-The DRNA PAC is part of a thriving Northwest side community, and over the years, numerous local stakeholders have contributed to the betterment of the natural area. We collaborate with the following partners whenever possible, and are appreciative of their contributions to the site:
+The Dunning Read Natural Area PAC is part of a thriving Northwest side community, and over the years, numerous local stakeholders have contributed to the betterment of the natural area. We collaborate with the following partners whenever possible, and are appreciative of their contributions to the site:
 
 {{< class "text-center" >}}
 
