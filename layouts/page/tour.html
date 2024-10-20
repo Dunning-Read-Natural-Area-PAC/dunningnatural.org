@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="p-7 flex flex-row content-center bg-gray-100">
+    <a href="{{ " /" }}">
+        <p>&lt; Back to dunningnatural.org</p>
+    </a>
+</div>
+
+<div class="p-4 pb-8">
+    <div class="mx-auto aspect-square max-h-[800px] grow" id="map"></div>
+</div>
+
+<div>
+    <p class="text-center" id="now-playing"></p>
+</div>
+
+<audio class="mb-8 mx-auto" preload="auto" controls controlslist="nodownload nofullscreen noremoteplayback"
+    id="tour-audio">
+</audio>
+
+<div class="text-center">
+    <p>All tour stops:</p>
+    <ol class="list-decimal list-inside">
+        {{ $resource := (.Resources.GetMatch "data.json").RelPermalink }}
+        {{ $data := getJSON "content" $resource }}
+        {{ range $marker := $data.markers }}
+        <li>
+            <span
+            data-marker-id="{{ $marker.id }}"
+            onclick="window.drnaAudioTour.play(this); window.drnaMap.showSelected(this)">{{ $marker.popup }}</span>
+        </li>
+        {{ end }}
+    </ol>
+
+</div>
+
+{{ end }}
