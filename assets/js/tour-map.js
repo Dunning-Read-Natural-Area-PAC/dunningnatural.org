@@ -37,8 +37,11 @@ L.tileLayer(
 )
     .addTo(map);
 
-
+let currentLocationMarker, currentLocationCircle;
 map.on('locationfound', (e) => {
+    currentLocationMarker && map.removeLayer(currentLocationMarker)
+    currentLocationCircle && map.removeLayer(currentLocationCircle)
+
     var radius = e.accuracy;
     var radiusft = Number(radius * 3.28084).toFixed(0);
 
@@ -47,9 +50,8 @@ map.on('locationfound', (e) => {
         iconSize: [20, 20],
     });
 
-    L.marker(e.latlng, { icon: myIcon }).addTo(map).bindPopup("You are within " + radiusft + " ft.");
-
-    L.circle(e.latlng, radius).addTo(map);
+    currentLocationMarker = L.marker(e.latlng, { icon: myIcon }).addTo(map).bindPopup("You are within " + radiusft + " ft.");
+    currentLocationCircle = L.circle(e.latlng, radius).addTo(map);
 });
 
 map.locate({ watch: true });
