@@ -97,7 +97,7 @@ urllib3==2.2.2
     # via requests
 watchdog==4.0.2
     # via functions-framework
-werkzeug==3.0.3
+werkzeug==3.0.6
     # via
     #   flask
     #   functions-framework
