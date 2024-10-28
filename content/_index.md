@@ -6,14 +6,6 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
 
-# Free nature art workshops at Dunning Read Natural Area ## { class="text-2xl sm:text-4xl lg:text-6xl" }
-
-Registration is required. Please complete the **[registration form](https://forms.gle/SYMTRVWSXXRiwncS8)** to record your interest.
-
-{{< fig loading="lazy" src="images/DRNA Arts in Conservation flyer 8_8_24_p1.png" alt="Flyer for a series of free, public workshops exploring art & nature on Saturday mornings from 10AM - noon,  September 7th through October 26, 2024." class="w-full object-cover" link="https://forms.gle/SYMTRVWSXXRiwncS8" >}}
-
-This project is partially supported by a Neighborhood Access Program grant from the City of Chicago Department of Cultural Affairs and Special Events.
-
 ## About Dunning Read Natural Area  ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
 The Dunning Read Natural Area (DRNA) is an approximately 21-acre park in the Dunning neighborhood of northwest Chicago. Comprising prairies, wetlands, and woodlands, the park has approximately 0.8 miles of trails and is under active restoration. The site is managed by the Chicago Park District.
