@@ -31,10 +31,10 @@ The Dunning Read Natural Area PAC is part of a thriving Northwest side community
 
 {{< class "text-center" >}}
 
-- [4000N.](https://cpag.squarespace.com/northwest-portage-walking-museum")
-- [The American Indian Center](http://aicchicago.org/)
+- [4000N.](https://cpag.squarespace.com/northwest-portage-walking-museum)
+- [The American Indian Center](https://aicchicago.org/)
 - [After School Matters Chicago](https://afterschoolmatters.org/)
-- [Anne’s Haven](http://www.anneshaven.net/)
+- [Anne's Haven](http://www.anneshaven.net/)
 - [Alderman Nicholas Sposato](https://aldermansposato.com/)
 - [The Chicago Park District](https://www.chicagoparkdistrict.com/)
 - [Chicago Read Mental Health Center](https://www.dhs.state.il.us/page.aspx?module=12&officetype=10&county=Cook)
