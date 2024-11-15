@@ -24,27 +24,28 @@ def pubsub_handler(cloud_event: CloudEvent):
     LOGGER.info("Handling new message", extra={"data": message})
 
     event_type = message["attributes"]["eventType"]
-    version_id = message["attributes"]["versionId"]
     secret_id = message["attributes"]["secretId"]
 
     match event_type:
         case "SECRET_ROTATE":
-            rotate(secret_id, version_id)
+            rotate(secret_id)
         case "SECRET_VERSION_ADD":
+            version_id = message["attributes"]["versionId"]
             update_worker(version_id)
         case _:
             LOGGER.info("Done handling, nothing to do", extra={"event_type": event_type})
             return
 
 
-def rotate(secret_id, current_version_id):
+def rotate(secret_id):
 
     client = secretmanager.SecretManagerServiceClient()
 
-    LOGGER.info("Requesting secret", extra={"version_id": current_version_id})
+    current_version_alias=f"{secret_id}/versions/latest"
+    LOGGER.info("Requesting secret", extra={"version_id": current_version_alias})
 
     access_secret_version_response = client.access_secret_version(
-        name=current_version_id
+        name=current_version_alias
     )
 
     current_token = access_secret_version_response.payload.data.decode("utf-8")
