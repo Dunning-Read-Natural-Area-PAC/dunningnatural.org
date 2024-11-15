@@ -21,7 +21,7 @@ def pubsub_handler(cloud_event: CloudEvent):
 
     message = cloud_event.data["message"]
 
-    LOGGER.info("Handling new message", extra={"message": message})
+    LOGGER.info("Handling new message", extra={"data": message})
 
     event_type = message["attributes"]["eventType"]
     version_id = message["attributes"]["versionId"]
