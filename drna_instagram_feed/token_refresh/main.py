@@ -21,11 +21,11 @@ def pubsub_handler(cloud_event: CloudEvent):
 
     message = cloud_event.data["message"]
 
+    LOGGER.info("Handling new message", extra={"message": message})
+
     event_type = message["attributes"]["eventType"]
     version_id = message["attributes"]["versionId"]
     secret_id = message["attributes"]["secretId"]
-
-    LOGGER.info("Handling new event", extra={"event_type": event_type})
 
     match event_type:
         case "SECRET_ROTATE":
