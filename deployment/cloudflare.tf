@@ -12,6 +12,14 @@ resource "cloudflare_pages_project" "dunningnatural-pages" {
     build_caching   = false
     destination_dir = "public"
   }
+
+  lifecycle {
+    ignore_changes = [
+      build_config[0].web_analytics_tag,
+      build_config[0].web_analytics_token
+    ]
+  }
+
 }
 
 resource "cloudflare_zone" "dunningnatural_zone" {
@@ -47,7 +55,7 @@ resource "cloudflare_page_rule" "cache_ig" {
   target   = "*dunningnatural.org/recent-instagram-posts"
   zone_id  = "b0e21706ef78bc21c2342e2a1be6cc22"
   actions {
-    cache_level                 = "cache_everything"
-    explicit_cache_control      = "on"
+    cache_level            = "cache_everything"
+    explicit_cache_control = "on"
   }
 }
