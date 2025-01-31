@@ -94,10 +94,11 @@ def update_worker(version_id):
 
     r = requests.put(
         "https://api.cloudflare.com/client/v4/accounts/441225c17ffd0facfc5a66f2ee0f45ac/storage/kv/namespaces/f4ef506c13b6448daccedb5b62eb8996/values/INSTAGRAM_TOKEN",
-        headers={"Authorization": f"Bearer {cloudflare_token}"},
-        json={
-            "value": current_ig_token
-        },
+        headers={
+            "Authorization": f"Bearer {cloudflare_token}",
+            "Content-Type": "application/octet-stream"
+            },
+        data=current_ig_token,
     )
 
     LOGGER.info("Done, CloudFlare response:", extra={"status_code": r.status_code, "text": r.text})
