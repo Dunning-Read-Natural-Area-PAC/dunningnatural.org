@@ -6,6 +6,3 @@ compatibility_date = "2024-08-06"
 kv_namespaces = [
   { binding = "DRNA_IG_Feed", id = "f4ef506c13b6448daccedb5b62eb8996" }
 ]
-
-[env]
-production = { }
