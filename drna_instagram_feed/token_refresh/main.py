@@ -9,7 +9,7 @@ from pythonjsonlogger import jsonlogger
 
 root_logger = logging.getLogger()
 logHandler = logging.StreamHandler()
-formatter = jsonlogger.JsonFormatter('%(message)%(levelname)%(name)%(asctime)')
+formatter = jsonlogger.JsonFormatter("%(message)%(levelname)%(name)%(asctime)")
 logHandler.setFormatter(formatter)
 root_logger.addHandler(logHandler)
 root_logger.level = logging.INFO
@@ -33,7 +33,9 @@ def pubsub_handler(cloud_event: CloudEvent):
             version_id = message["attributes"]["versionId"]
             update_worker(version_id)
         case _:
-            LOGGER.info("Done handling, nothing to do", extra={"event_type": event_type})
+            LOGGER.info(
+                "Done handling, nothing to do", extra={"event_type": event_type}
+            )
             return
 
 
@@ -41,7 +43,7 @@ def rotate(secret_id):
 
     client = secretmanager.SecretManagerServiceClient()
 
-    current_version_alias=f"{secret_id}/versions/latest"
+    current_version_alias = f"{secret_id}/versions/latest"
     LOGGER.info("Requesting secret", extra={"version_id": current_version_alias})
 
     access_secret_version_response = client.access_secret_version(
@@ -96,9 +98,12 @@ def update_worker(version_id):
         "https://api.cloudflare.com/client/v4/accounts/441225c17ffd0facfc5a66f2ee0f45ac/storage/kv/namespaces/f4ef506c13b6448daccedb5b62eb8996/values/INSTAGRAM_TOKEN",
         headers={
             "Authorization": f"Bearer {cloudflare_token}",
-            "Content-Type": "application/octet-stream"
-            },
+            "Content-Type": "application/octet-stream",
+        },
         data=current_ig_token,
     )
 
-    LOGGER.info("Done, CloudFlare response:", extra={"status_code": r.status_code, "text": r.text})
+    LOGGER.info(
+        "Done, CloudFlare response:",
+        extra={"status_code": r.status_code, "text": r.text},
+    )
