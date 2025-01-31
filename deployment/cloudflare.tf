@@ -59,3 +59,8 @@ resource "cloudflare_page_rule" "cache_ig" {
     explicit_cache_control = "on"
   }
 }
+
+resource "cloudflare_workers_kv_namespace" "drna_ig_feed" {
+  account_id = cloudflare_account.dunningnatural.id
+  title      = "DRNA IG Feed"
+}

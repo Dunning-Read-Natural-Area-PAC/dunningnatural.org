@@ -52,8 +52,8 @@ resource "google_service_account" "instagram_secret_rotator_service_account" {
 
 resource "google_service_account_iam_member" "github_actions_sa_access" {
   service_account_id = google_service_account.instagram_secret_rotator_service_account.id
-  role    = "roles/iam.serviceAccountUser"
-  member  = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
+  role               = "roles/iam.serviceAccountUser"
+  member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github_actions.name}/*"
 }
 
 resource "google_pubsub_topic" "instagram_secret_rotator" {
