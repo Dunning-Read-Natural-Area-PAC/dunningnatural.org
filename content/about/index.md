@@ -15,7 +15,7 @@ The Dunning Read Natural Area Park Advisory Council (PAC) is volunteer group of 
 
 {{< board-gallery >}}
 
-The park advisory council board meets monthly at the Dunning Library. Open community meetings are held quarterly. Meeting minutes and bylaws can be found online. [Check out what we discussed in our last board meeting](https://drive.google.com/drive/folders/1lVcxHq3V1kcrZdLFYdHaTJDbXum4LQVh).
+The Dunning Read Natural Area Park Advisory Council meets monthly at the [Dunning Library](https://www.chipublib.org/locations/26/). We aim to hold larger community meetings yearly. Meeting minutes and bylaws can be found online. [Check out what we discussed in our last board meeting](https://drive.google.com/drive/folders/1lVcxHq3V1kcrZdLFYdHaTJDbXum4LQVh).
 
 {{< fig loading="lazy" src="images/ribbon-cutting.jpg" alt="Roughly a dozen people standing in front of the Nesewin sculpture for a ribbon cutting ceremony" class="p-5 float-none sm:float-right w-full sm:w-1/2" >}}
 
