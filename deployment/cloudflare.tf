@@ -1,43 +1,39 @@
-resource "cloudflare_account" "dunningnatural" {
-  settings = {
-    enforce_twofactor = true
-  }
-  name = "DRNA PAC"
-  type = "standard"
+locals {
+  cf_account_id = "441225c17ffd0facfc5a66f2ee0f45ac"
 }
 
-# resource "cloudflare_pages_project" "dunningnatural-pages" {
-#   account_id        = cloudflare_account.dunningnatural.id
-#   name              = "dunningnatural-pages"
-#   production_branch = "main"
+resource "cloudflare_pages_project" "dunningnatural-pages" {
+  account_id        = local.cf_account_id
+  name              = "dunningnatural-pages"
+  production_branch = "main"
 
-#   build_config = {
-#     destination_dir = "public"
-#   }
+  build_config = {
+    destination_dir = "public"
+  }
 
-#   deployment_configs = {
-#     preview = {
-#       compatibility_date = "2024-08-06"
-#       kv_namespaces = {
-#         DRNA_IG_Feed = {
-#           namespace_id = "f4ef506c13b6448daccedb5b62eb8996"
-#         }
-#       }
-#     }
-#     production = {
-#       compatibility_date = "2024-08-06"
-#       kv_namespaces = {
-#         DRNA_IG_Feed = {
-#           namespace_id = "f4ef506c13b6448daccedb5b62eb8996"
-#         }
-#       }
-#     }
-#   }
-# }
+  deployment_configs = {
+    preview = {
+      compatibility_date = "2024-08-06"
+      kv_namespaces = {
+        DRNA_IG_Feed = {
+          namespace_id = "f4ef506c13b6448daccedb5b62eb8996"
+        }
+      }
+    }
+    production = {
+      compatibility_date = "2024-08-06"
+      kv_namespaces = {
+        DRNA_IG_Feed = {
+          namespace_id = "f4ef506c13b6448daccedb5b62eb8996"
+        }
+      }
+    }
+  }
+}
 
 resource "cloudflare_zone" "dunningnatural_zone" {
   account = {
-    id = cloudflare_account.dunningnatural.id
+    id = local.cf_account_id
   }
   type = "full"
   name = "dunningnatural.org"
@@ -73,6 +69,6 @@ resource "cloudflare_page_rule" "cache_ig" {
 }
 
 resource "cloudflare_workers_kv_namespace" "drna_ig_feed" {
-  account_id = cloudflare_account.dunningnatural.id
+  account_id = local.cf_account_id
   title      = "DRNA IG Feed"
 }
