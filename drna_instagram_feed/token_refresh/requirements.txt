@@ -22,7 +22,7 @@ cloudevents==1.11.0
     #   functions-framework
 deprecation==2.1.0
     # via cloudevents
-flask==3.1.0
+flask==3.1.1
     # via functions-framework
 functions-framework==3.8.2
     # via -r requirements.in
@@ -63,6 +63,7 @@ jinja2==3.1.6
     # via flask
 markupsafe==3.0.2
     # via
+    #   flask
     #   jinja2
     #   werkzeug
 packaging==24.2
