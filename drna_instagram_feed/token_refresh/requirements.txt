@@ -16,7 +16,7 @@ click==8.1.8
     # via
     #   flask
     #   functions-framework
-cloudevents==1.11.0
+cloudevents==1.11.1
     # via
     #   -r requirements.in
     #   functions-framework
