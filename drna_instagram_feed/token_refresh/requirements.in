@@ -1,4 +1,4 @@
-cloudevents ~= 1.11
+cloudevents ~= 1.12
 functions-framework ~= 3.8
 google-cloud-secret-manager ~= 2.24
 google-crc32c ~= 1.6
