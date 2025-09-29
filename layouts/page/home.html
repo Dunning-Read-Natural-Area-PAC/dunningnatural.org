@@ -8,11 +8,11 @@
 </section>
 
 <section class="footer-image">
-    <div class="relative w-full mx-auto text-white" style="text-shadow: rgb(0, 0, 0) 0px 0px 21px;">
+    <div class="relative w-full mx-auto text-white shadow-lg">
         {{ $image := .Resources.Get "footer.jpg" }}
-        <img alt="" class="w-full min-h-[400px] max-h-[400px] object-cover" src="{{ $image.RelPermalink }}">
+        <img alt="" class="w-full min-h-[400px] max-h-[400px] object-cover brightness-50" src="{{ $image.RelPermalink }}">
 
-        <div class="absolute inset-0 flex flex-col items-center justify-center justify-between h-3/4 m-auto">
+        <div class="absolute inset-0 flex flex-col items-center justify-between p-8">
             <h1 class="text-2xl sm:text-4xl lg:text-6xl uppercase">Questions?</h1>
             <p class="text-center max-w-screen-lg px-4">Are you interested in getting involved or being added to our email list? Want to share your thoughts
                 and ideas or ask questions? Please contact us. We look forward to hearing from you!</p>
