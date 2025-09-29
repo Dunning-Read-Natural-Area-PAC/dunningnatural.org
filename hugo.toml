@@ -25,13 +25,13 @@ pageRef = '/calendar'
 weight = 40
 
 [[menus.main]]
-name = 'Audio tour'
-pageRef = '/tour'
+name = 'Contact us'
+pageRef = '/contact'
 weight = 50
 
 [[menus.main]]
-name = 'Contact us'
-pageRef = '/contact'
+name = 'Audio tour'
+pageRef = '/tour'
 weight = 60
 
 [module]
