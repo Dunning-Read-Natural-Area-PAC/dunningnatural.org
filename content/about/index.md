@@ -31,7 +31,6 @@ The Dunning Read Natural Area PAC is part of a thriving Northwest side community
 
 {{< class "text-center" >}}
 
-- [4000N.](https://cpag.squarespace.com/northwest-portage-walking-museum)
 - [The American Indian Center](https://aicchicago.org/)
 - [After School Matters Chicago](https://afterschoolmatters.org/)
 - [Anne's Haven](http://www.anneshaven.net/)
@@ -53,5 +52,6 @@ The Dunning Read Natural Area PAC is part of a thriving Northwest side community
 - [State Sen. Robert Martwick](https://senatormartwick.com/)
 - [Taft Freshman Academy](https://www.tafthighschool.org/freshmanacademy/)
 - [Wilbur Wright College](https://www.ccc.edu/colleges/wright/Pages/default.aspx)
+- 4000N.
 
 {{< /class >}}
