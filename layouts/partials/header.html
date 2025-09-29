@@ -1,6 +1,6 @@
 <div class="relative w-full mx-auto text-white flex" style="text-shadow: rgb(0, 0, 0) 0px 0px 21px;">
     {{ $image := .Resources.Get "masthead.jpg" }}
-    <img class="w-full object-cover h-48 md:h-80" alt="" src="{{ $image.RelPermalink }}">
+    <img class="w-full object-cover h-48 md:h-80 brightness-75" alt="" src="{{ $image.RelPermalink }}">
 
     {{ $image := resources.Get "images/drna-logo-round.png" }}
     {{ $image := $image.Resize "200x200" }}
