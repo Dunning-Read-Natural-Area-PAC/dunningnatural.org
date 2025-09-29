@@ -9,7 +9,7 @@ draft = false
 
 {{< fig loading="lazy" src="workday.jpg" alt="Volunteers working to remove weeds" class="p-5 float-none sm:float-right w-full sm:w-1/2" >}}
 
-The Dunning Read Natural Area, also known as [Park 601](https://www.chicagoparkdistrict.com/parks-facilities/park-no-601), is an approximately 21-acre area in the Dunning neighborhood of northwest Chicago. Comprising prairies, wetlands, and woodlands, the park has approximately 0.8 miles of trails and is under active restoration by the Chicago Park District. Much of that work focuses on removing invasive teasel, buckthorn, phragmites, and wild parsnip.
+The Dunning Read Natural Area, also known as [Park 601](https://www.chicagoparkdistrict.com/parks-facilities/park-no-601-dunning-read-natural-area), is an approximately 21-acre area in the Dunning neighborhood of northwest Chicago. Comprising prairies, wetlands, and woodlands, the park has approximately 0.8 miles of trails and is under active restoration by the Chicago Park District. Much of that work focuses on removing invasive teasel, buckthorn, phragmites, and wild parsnip.
 
 The site offers a unique oasis in the midst of the city, with open space and trails for public enjoyment. The woodlands and wetlands help control stormwater runoff, and provide critical habitat for native plants and animals. Hawks, coyote, red-winged blackbirds, chipmunks, killdeer, and other wildlife can be found in the park.
 
