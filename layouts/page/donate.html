@@ -4,12 +4,12 @@
         <section class="max-w-screen-lg text-base space-y-10 m-auto mb-5 px-4">
             <div class="columns-2">
 
-                {{ $image := .Resources.Get "fotp-logo-badge-green-2025.png" }}
-                <img alt="Logo for Friends of the Parks showing three stylized people with raised arms forming the trunk and branches of a tree, with the text curved above the image."
-                    class="w-full min-h-[128px] max-h-[128px] object-contain" src="{{ $image.RelPermalink }}">
-
                 {{ $image := resources.Get "images/drna-logo-round.png" }}
                 <img alt="Logo for Dunning Read Natural Area Park Advisory Council, featuring silhouettes of a family, bird, butterfly, and flowers within a green circular design"
+                    class="w-full min-h-[128px] max-h-[128px] object-contain" src="{{ $image.RelPermalink }}">
+
+                {{ $image := .Resources.Get "fotp-logo-badge-green-2025.png" }}
+                <img alt="Logo for Friends of the Parks showing three stylized people with raised arms forming the trunk and branches of a tree, with the text curved above the image."
                     class="w-full min-h-[128px] max-h-[128px] object-contain" src="{{ $image.RelPermalink }}">
 
             </div>
