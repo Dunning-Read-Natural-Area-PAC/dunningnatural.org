@@ -2,9 +2,7 @@
 <div class=" w-full max-w-screen-lg mx-auto px-4">
     <div class="flex flex-row flex-wrap">
         <section class="max-w-screen-lg text-base space-y-10 m-auto mb-5 px-4">
-            <div class="columns-2 ...">
-
-                
+            <div class="columns-2">
 
                 {{ $image := .Resources.Get "fotp-logo-badge-green-2025.png" }}
                 <img alt="Logo for Friends of the Parks showing three stylized people with raised arms forming the trunk and branches of a tree, with the text curved above the image."
@@ -13,16 +11,47 @@
                 {{ $image := resources.Get "images/drna-logo-round.png" }}
                 <img alt="Logo for Dunning Read Natural Area Park Advisory Council, featuring silhouettes of a family, bird, butterfly, and flowers within a green circular design"
                     class="w-full min-h-[128px] max-h-[128px] object-contain" src="{{ $image.RelPermalink }}">
-                
-
 
             </div>
-            
-            <h2 class="p-1 text-center text-xl sm:text-2xl lg:text-4xl">Donate to support the volunteer work of the Dunning Read Natural Area Park Advisory Council</h2>
 
-            <p><a href="https://www.fotp.org/">Friends of the Parks</a>, a citywide park advocacy organization, serves as fiscal sponsor to the Dunning Read Natural Area PAC.</p>
+            <h2 class="p-1 text-center text-xl sm:text-2xl lg:text-4xl">Donate to support the volunteer work of the
+                Dunning Read Natural Area Park Advisory Council</h2>
 
-            <p>​​Friends of the Parks is an exempt organization as described in Section 501©(3) of the Internal Revenue Code; EIN #36-2844241.</p>
+            <p><a href="https://www.fotp.org/">Friends of the Parks</a>, a citywide park advocacy organization, serves
+                as fiscal sponsor to the Dunning Read Natural Area PAC.</p>
+
+            <p>​​Friends of the Parks is an exempt organization as described in Section 501©(3) of the Internal Revenue
+                Code; EIN #36-2844241.</p>
+
+            <div class="flex flex-col items-center gap-4">
+
+                <p>Donate using PayPal:</p>
+
+                <div id="donate-button-container">
+                    <div id="donate-button" class="m-auto"></div>
+                    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                    <script>
+                        PayPal.Donation.Button({
+                            env: 'production',
+                            hosted_button_id: 'BQMP46SVGE3GN',
+                            image: {
+                                src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                                alt: 'Donate with PayPal button',
+                                title: 'PayPal - The safer, easier way to pay online!',
+                            }
+                        }).render('#donate-button');
+                    </script>
+                </div>
+
+                <p>Donate using Venmo:</p>
+
+                <div>
+                    <a class="block px-6 py-3 m rounded-md bg-dark-green text-white no-underline"
+                        style="background-color: #008CFF;" href="https://www.venmo.com/u/dunningnatural">Donate on
+                        Venmo</a>
+                </div>
+            </div>
+
 
         </section>
     </div>
