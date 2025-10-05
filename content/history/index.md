@@ -30,8 +30,3 @@ In 2021, a state bill backed by local lawmakers passed, and transferred the land
 ---
 
 Please join us in continuing a long legacy of community involvement and advocacy for the protection and restoration of this incredible natural area.
-
-<img loading="lazy" decoding="async" width="1024" height="768" src="https://dunningnatural.org/wp-content/uploads/2023/02/24958901_1738731816199845_2177233558910922563_o.jpg" alt="" loading="lazy" />  
-<img loading="lazy" decoding="async" width="1024" height="768" src="https://dunningnatural.org/wp-content/uploads/2023/02/24831462_1738730169533343_6830763751200262520_o.jpg" alt="" loading="lazy" />  
-<img loading="lazy" decoding="async" width="1024" height="768" src="https://dunningnatural.org/wp-content/uploads/2023/02/24837373_1738730649533295_1933017408456914681_o.jpg" alt="" loading="lazy" />  
-<img loading="lazy" decoding="async" width="1024" height="768" src="https://dunningnatural.org/wp-content/uploads/2023/02/24837304_1738730172866676_249156176769543039_o.jpg" alt="" loading="lazy" />
