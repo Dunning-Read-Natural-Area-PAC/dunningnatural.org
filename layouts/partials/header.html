@@ -1,13 +1,59 @@
 <div class="relative w-full mx-auto text-white flex" style="text-shadow: rgb(0, 0, 0) 0px 0px 21px;">
-    {{ with or (.Resources.Get "masthead.jpg") (resources.Get "images/masthead.jpg") }}
-    <img class="w-full object-cover h-48 md:h-80 brightness-75" alt="" src="{{ .RelPermalink }}">
-    {{- end }}
+    {{ $image := or (.Resources.Get "masthead.jpg") (resources.Get "images/masthead.jpg") }}
+    {{- $image_sizes := slice "420" "789" "1019" "1430" "2048" -}}
+    {{- $image_quality := "Lanczos" -}}
+    {{- $fallback_image := ($image.Resize (print "789x jpg " $image_quality)) -}}
+    <img
+        alt=""
+        fetchpriority="high"
+        class="w-full object-cover h-48 md:h-80 brightness-75"
+        srcset="
+            {{- if le $image.Width (index $image_sizes 0) }}
+            {{- with $image.Resize (print $image.Width "x webp " $image_quality) -}}
+                {{- print .RelPermalink " " .Width "w, " -}}
+            {{- end -}}
+            {{- end -}}
+            {{- with $image_sizes -}}
+            {{- range $index, $size := . -}}
+                {{- if ge $image.Width $size -}}
+                {{- with $image.Resize (print $size "x webp " $image_quality) -}}
+                    {{- print .RelPermalink " " $size "w, " -}}
+                {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            {{- end -}}"
+            sizes="(min-width: 800px) 50vw, 100vw"
+            src="{{- $fallback_image.RelPermalink -}}"
+    />
+
+
 
     {{ $image := resources.Get "images/drna-logo-round.png" }}
-    {{ $image := $image.Resize "200x200" }}
-    <img class="absolute top-5 left-5 flex w-[50px] h-[50px] md:w-[100px] md:h-[100px]"
-            alt="Logo for Dunning Read Natural Area Park Advisory Council, featuring silhouettes of a family, bird, butterfly, and flowers within a green circular design"
-            src="{{ $image.RelPermalink }}" />
+    {{- $image_sizes := slice "50" "75" "100" "150" "200" -}}
+    {{- $image_quality := "Lanczos" -}}
+    {{- $fallback_image := ($image.Resize (print "200x200 " $image_quality)) -}}
+        <img
+        alt=""
+        fetchpriority="high"
+        class="absolute top-5 left-5 flex w-[50px] h-[50px] md:w-[100px] md:h-[100px]"
+        srcset="
+            {{- if le $image.Width (index $image_sizes 0) }}
+            {{- with $image.Resize (print $image.Width "x webp " $image_quality) -}}
+                {{- print .RelPermalink " " .Width "w, " -}}
+            {{- end -}}
+            {{- end -}}
+            {{- with $image_sizes -}}
+            {{- range $index, $size := . -}}
+                {{- if ge $image.Width $size -}}
+                {{- with $image.Resize (print $size "x webp " $image_quality) -}}
+                    {{- print .RelPermalink " " $size "w, " -}}
+                {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            {{- end -}}"
+            sizes="(min-width: 800px) 50vw, 100vw"
+            src="{{- $fallback_image.RelPermalink -}}"
+    />
 
     <div class="absolute inset-0 flex items-center justify-center uppercase text-center text-2xl sm:text-4xl lg:text-6xl">
         <h1 class="grow">{{ .Title }}<br><span class="capitalize text-xl sm:text-2xl lg:text-4xl">{{ .Param "subtitle" }}</span> </h1>
