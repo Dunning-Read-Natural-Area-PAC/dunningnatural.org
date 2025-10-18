@@ -25,7 +25,7 @@ The Dunning Read Natural Area Park Advisory Council meets monthly at the [Dunnin
 
 Volunteer workdays are held at Dunning Read Natural Area from 9am-12pm on the third Saturday of every month. Activities include clearing invasive species, beautification, litter clean up, and other projects.
 
-Are you interested in getting involved or being added to our email list? Want to share your thoughts and ideas or ask questions? [Please contact us]({{< ref "/about" >}}). We look forward to hearing from you.
+Are you interested in getting involved or being added to our email list? Want to share your thoughts and ideas or ask questions? [Please contact us]({{< ref "/contact" >}}). We look forward to hearing from you.
 
 ## Community   ## { class="p-1 text-center text-xl sm:text-2xl lg:text-4xl" }
 
