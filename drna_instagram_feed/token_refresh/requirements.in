@@ -1,6 +1,6 @@
 cloudevents ~= 1.12
 functions-framework ~= 3.10
 google-cloud-secret-manager ~= 2.26
-google-crc32c ~= 1.7
+google-crc32c ~= 1.8
 python-json-logger ~= 4.0
 requests ~= 2.32
