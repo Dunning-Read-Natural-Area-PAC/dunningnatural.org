@@ -119,7 +119,7 @@ typing-extensions==4.13.2
     #   python-json-logger
     #   starlette
     #   uvicorn
-urllib3==2.6.0
+urllib3==2.6.3
     # via requests
 uvicorn==0.38.0
     # via
