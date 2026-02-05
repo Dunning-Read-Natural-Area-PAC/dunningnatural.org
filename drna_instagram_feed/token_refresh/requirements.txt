@@ -86,7 +86,7 @@ proto-plus==1.26.0
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-protobuf==5.29.5
+protobuf==5.29.6
     # via
     #   google-api-core
     #   google-cloud-secret-manager
