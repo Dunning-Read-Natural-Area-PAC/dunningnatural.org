@@ -11,6 +11,6 @@
     "concurrently": "^9.2.1",
     "rimraf": "^6.1.2",
     "tailwindcss": "^4.1.18",
-    "wrangler": "^4.61.1"
+    "wrangler": "^4.63.0"
   }
 }
