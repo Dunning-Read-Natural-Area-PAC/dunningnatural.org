@@ -49,10 +49,8 @@ jobs:
           echo "::add-mask::$CLOUDFLARE_API_TOKEN"
           echo "cloudflare-api-token=${CLOUDFLARE_API_TOKEN}" >> "$GITHUB_OUTPUT"
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ steps.set-cf-secret.outputs.cloudflare-api-token }}
           accountId: "441225c17ffd0facfc5a66f2ee0f45ac"
-          projectName: "dunningnatural-pages"
-          directory: public
-          wranglerVersion: '4'
+          command: pages deploy public --project-name=dunningnatural-pages
