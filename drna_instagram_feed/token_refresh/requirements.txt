@@ -4,17 +4,17 @@
 #
 #    pip-compile requirements.in
 #
-anyio==4.11.0
+anyio==4.13.0
     # via starlette
 blinker==1.9.0
     # via flask
-cachetools==5.5.1
-    # via google-auth
-certifi==2025.1.31
+certifi==2026.2.25
     # via requests
-charset-normalizer==3.4.1
+cffi==2.0.0
+    # via cryptography
+charset-normalizer==3.4.7
     # via requests
-click==8.1.8
+click==8.3.2
     # via
     #   flask
     #   functions-framework
@@ -23,6 +23,8 @@ cloudevents==1.12.0
     # via
     #   -r requirements.in
     #   functions-framework
+cryptography==46.0.7
+    # via google-auth
 deprecation==2.1.0
     # via cloudevents
 exceptiongroup==1.3.1
@@ -31,9 +33,9 @@ flask==3.1.3
     # via functions-framework
 functions-framework==3.10.1
     # via -r requirements.in
-google-api-core[grpc]==2.24.1
+google-api-core[grpc]==2.30.3
     # via google-cloud-secret-manager
-google-auth==2.38.0
+google-auth==2.49.2
     # via
     #   google-api-core
     #   google-cloud-secret-manager
@@ -41,52 +43,50 @@ google-cloud-secret-manager==2.27.0
     # via -r requirements.in
 google-crc32c==1.8.0
     # via -r requirements.in
-googleapis-common-protos[grpc]==1.66.0
+googleapis-common-protos[grpc]==1.74.0
     # via
     #   google-api-core
     #   grpc-google-iam-v1
     #   grpcio-status
-grpc-google-iam-v1==0.14.0
+grpc-google-iam-v1==0.14.4
     # via google-cloud-secret-manager
-grpcio==1.70.0
+grpcio==1.80.0
     # via
     #   google-api-core
     #   google-cloud-secret-manager
     #   googleapis-common-protos
     #   grpc-google-iam-v1
     #   grpcio-status
-grpcio-status==1.70.0
+grpcio-status==1.80.0
     # via google-api-core
-gunicorn==23.0.0
+gunicorn==25.3.0
     # via
     #   functions-framework
     #   uvicorn-worker
 h11==0.16.0
     # via uvicorn
-idna==3.10
+idna==3.11
     # via
     #   anyio
     #   requests
-importlib-metadata==8.6.1
-    # via flask
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
     # via flask
-markupsafe==3.0.2
+markupsafe==3.0.3
     # via
     #   flask
     #   jinja2
     #   werkzeug
-packaging==24.2
+packaging==26.1
     # via
     #   deprecation
     #   gunicorn
-proto-plus==1.26.0
+proto-plus==1.27.2
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-protobuf==5.29.6
+protobuf==6.33.6
     # via
     #   google-api-core
     #   google-cloud-secret-manager
@@ -95,33 +95,30 @@ protobuf==5.29.6
     #   grpcio-status
     #   proto-plus
 pyasn1==0.6.3
-    # via
-    #   pyasn1-modules
-    #   rsa
-pyasn1-modules==0.4.1
+    # via pyasn1-modules
+pyasn1-modules==0.4.2
     # via google-auth
-python-json-logger==4.0.0
+pycparser==3.0
+    # via cffi
+python-json-logger==4.1.0
     # via -r requirements.in
-requests==2.32.5
+requests==2.33.1
     # via
     #   -r requirements.in
     #   google-api-core
-rsa==4.9
-    # via google-auth
-sniffio==1.3.1
-    # via anyio
-starlette==0.49.3
+starlette==0.52.1
     # via functions-framework
-typing-extensions==4.13.2
+typing-extensions==4.15.0
     # via
     #   anyio
+    #   cryptography
     #   exceptiongroup
-    #   python-json-logger
+    #   grpcio
     #   starlette
     #   uvicorn
 urllib3==2.6.3
     # via requests
-uvicorn==0.38.0
+uvicorn==0.44.0
     # via
     #   functions-framework
     #   uvicorn-worker
@@ -129,9 +126,7 @@ uvicorn-worker==0.4.0
     # via functions-framework
 watchdog==6.0.0
     # via functions-framework
-werkzeug==3.1.6
+werkzeug==3.1.8
     # via
     #   flask
     #   functions-framework
-zipp==3.21.0
-    # via importlib-metadata
