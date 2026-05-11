@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-anyio==4.13.0
+anyio==4.12.1
     # via starlette
 blinker==1.9.0
     # via flask
@@ -14,7 +14,7 @@ cffi==2.0.0
     # via cryptography
 charset-normalizer==3.4.7
     # via requests
-click==8.3.2
+click==8.1.8
     # via
     #   flask
     #   functions-framework
@@ -39,7 +39,7 @@ google-auth==2.49.2
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-google-cloud-secret-manager==2.27.0
+google-cloud-secret-manager==2.28.0
     # via -r requirements.in
 google-crc32c==1.8.0
     # via -r requirements.in
@@ -59,7 +59,7 @@ grpcio==1.80.0
     #   grpcio-status
 grpcio-status==1.80.0
     # via google-api-core
-gunicorn==25.3.0
+gunicorn==23.0.0
     # via
     #   functions-framework
     #   uvicorn-worker
@@ -69,6 +69,8 @@ idna==3.11
     # via
     #   anyio
     #   requests
+importlib-metadata==8.7.1
+    # via flask
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
@@ -98,15 +100,15 @@ pyasn1==0.6.3
     # via pyasn1-modules
 pyasn1-modules==0.4.2
     # via google-auth
-pycparser==3.0
+pycparser==2.23
     # via cffi
-python-json-logger==4.1.0
+python-json-logger==4.0.0
     # via -r requirements.in
-requests==2.33.1
+requests==2.32.5
     # via
     #   -r requirements.in
     #   google-api-core
-starlette==0.52.1
+starlette==0.49.3
     # via functions-framework
 typing-extensions==4.15.0
     # via
@@ -114,11 +116,12 @@ typing-extensions==4.15.0
     #   cryptography
     #   exceptiongroup
     #   grpcio
+    #   python-json-logger
     #   starlette
     #   uvicorn
 urllib3==2.6.3
     # via requests
-uvicorn==0.44.0
+uvicorn==0.39.0
     # via
     #   functions-framework
     #   uvicorn-worker
@@ -130,3 +133,5 @@ werkzeug==3.1.8
     # via
     #   flask
     #   functions-framework
+zipp==3.23.1
+    # via importlib-metadata
