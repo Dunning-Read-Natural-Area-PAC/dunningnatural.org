@@ -65,7 +65,7 @@ gunicorn==23.0.0
     #   uvicorn-worker
 h11==0.16.0
     # via uvicorn
-idna==3.11
+idna==3.15
     # via
     #   anyio
     #   requests
