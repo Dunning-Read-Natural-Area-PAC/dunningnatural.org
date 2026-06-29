@@ -3,4 +3,4 @@ functions-framework ~= 3.10
 google-cloud-secret-manager ~= 2.28
 google-crc32c ~= 1.8
 python-json-logger ~= 4.0
-requests ~= 2.32
+requests ~= 2.34

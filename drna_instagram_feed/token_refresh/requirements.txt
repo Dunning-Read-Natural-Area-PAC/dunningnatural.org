@@ -69,8 +69,6 @@ idna==3.15
     # via
     #   anyio
     #   requests
-importlib-metadata==8.7.1
-    # via flask
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
@@ -104,7 +102,7 @@ pycparser==2.23
     # via cffi
 python-json-logger==4.0.0
     # via -r requirements.in
-requests==2.32.5
+requests==2.34.2
     # via
     #   -r requirements.in
     #   google-api-core
@@ -116,7 +114,6 @@ typing-extensions==4.15.0
     #   cryptography
     #   exceptiongroup
     #   grpcio
-    #   python-json-logger
     #   starlette
     #   uvicorn
 urllib3==2.6.3
@@ -133,5 +130,3 @@ werkzeug==3.1.8
     # via
     #   flask
     #   functions-framework
-zipp==3.23.1
-    # via importlib-metadata
