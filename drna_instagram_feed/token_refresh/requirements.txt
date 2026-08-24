@@ -100,7 +100,7 @@ pyasn1-modules==0.4.2
     # via google-auth
 pycparser==3.0
     # via cffi
-python-json-logger==4.1.0
+python-json-logger==4.2.0
     # via -r requirements.in
 requests==2.34.2
     # via
