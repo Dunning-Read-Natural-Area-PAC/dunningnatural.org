@@ -39,7 +39,7 @@ google-auth==2.57.0
     # via
     #   google-api-core
     #   google-cloud-secret-manager
-google-cloud-secret-manager==2.30.0
+google-cloud-secret-manager==2.31.0
     # via -r requirements.in
 google-crc32c==1.9.0
     # via -r requirements.in
